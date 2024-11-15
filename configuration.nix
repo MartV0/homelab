@@ -81,6 +81,8 @@
     htop
   ];
 
+  programs.vim.defaultEditor = true;
+
   programs.tmux = {
     enable = true;
     clock24 = true;
