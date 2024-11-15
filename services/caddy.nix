@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, staticSite, ... }:
 {
   services.caddy = {
     enable = true;
-    virtualHosts."localhost".extraConfig = ''
-      respond "Hello, world!"
+    virtualHosts."martijnv.com".extraConfig = ''
+      root * ${staticSite.website.src}
+      file_server
     '';
   };
 }

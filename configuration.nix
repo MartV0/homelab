@@ -11,7 +11,7 @@
       # ./services/seafile.nix
       ./services/caddy.nix
       ./admin/ssh.nix
-      ./system/autoupdate.nix
+      # ./system/autoupdate.nix
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -61,6 +61,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.martijn = {
@@ -77,6 +78,7 @@
     killall
     git
     fastfetch
+    htop
   ];
 
   programs.tmux = {
@@ -98,7 +100,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
