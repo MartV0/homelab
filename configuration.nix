@@ -79,6 +79,7 @@
     git
     fastfetch
     htop
+    age
   ];
 
   programs.vim.defaultEditor = true;
