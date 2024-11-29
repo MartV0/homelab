@@ -3,6 +3,7 @@
   services.seafile = {
     enable = true;
     adminEmail = "martijnvoordouw@gmail.com";
+    seahubAddress = "0.0.0.0:8083";
     # dataDir = "/path";
     # group = "";
     initialAdminPassword = "wachtwoord"; #TODO
@@ -10,10 +11,11 @@
     seafileSettings = {
       fileserver = {
         port = 8082;
-        host = "ipv4:127:0:0.1";
+        host = "ipv4:0.0.0.0";
       };
-      seahubAdress = "0.0.0.0:8083";
     };
+    gc.enable = true; # TODO garbage collection?
+    ccnetSettings.General.SERVICE_URL = "http://0.0.0.0:8083/"
     # user = "seafile";
     # workers = 4;
   };
