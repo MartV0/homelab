@@ -80,6 +80,7 @@
     fastfetch
     htop
     age
+    sqlite
   ];
 
   programs.vim.defaultEditor = true;
