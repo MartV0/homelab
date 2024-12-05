@@ -84,6 +84,7 @@
     age
     sqlite
     jq
+    just
   ];
 
   programs.vim.defaultEditor = true;
