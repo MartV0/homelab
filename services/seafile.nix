@@ -25,4 +25,21 @@ let url = "seafile.martijnv.com"; in {
   services.caddy.virtualHosts."${url}".extraConfig = ''
     reverse_proxy localhost:8083
   '';
+
+  users.users.seafile = { 
+    isSystemUser = true;
+    group = "seafile";
+  };
+  users.groups.seafile = {};
+
+  # create seafile directory if it doesn't exist yet (not temporary like the option name suggests)
+  systemd.tmpfiles.rules = [
+    "d /datadisk/seafile 0777 seafile seafile" 
+    "d /datadisk/seafile/data 0777 seafile seafile" 
+    # hacky
+    # "L+ /var/lib/seafile/data - - - - /datadisk/seafile/data" 
+  ];
+ 
+  systemd.services.seaf-server.after = [ "datadisk.mount" ];
+  systemd.services.seaf-server.requires = [ "datadisk.mount" ];
 }
