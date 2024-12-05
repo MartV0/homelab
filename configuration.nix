@@ -12,6 +12,7 @@
       ./services/caddy.nix
       ./admin/ssh.nix
       # ./system/autoupdate.nix
+      ./system/datadisk.nix
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -66,8 +67,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.martijn = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [];
+    extraGroups = [ "wheel" "docker" "seafile" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [];
+    uid = 1001;
   };
 
   # List packages installed in system profile. To search, run:
@@ -81,9 +83,11 @@
     htop
     age
     sqlite
+    jq
   ];
 
   programs.vim.defaultEditor = true;
+  programs.vim.enable = true;
 
   programs.tmux = {
     enable = true;
@@ -104,7 +108,10 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
