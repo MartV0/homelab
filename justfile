@@ -7,9 +7,13 @@ rebuild:
 up:
   nix flake update
 
-up-repo: up
-  git add flake.lock
-  git commit -m "updated lock file to revision $(nixos-version)"
+upc:
+  nix flake update --commit-lock-file
+
+update-rebuild: upc
+  sudo nixos-rebuild switch --fast --flake "$(pwd)"
+
+alias upre := update-rebuild
 
 gc:
   sudo nix-collect-garbage --delete-older-than 30d
