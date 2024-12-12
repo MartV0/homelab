@@ -28,7 +28,7 @@
   };
 
   # weird but otherwise the update service complains the directory is not owned by the same user
-  programs.git.config.safe.directory = "*";
+  programs.git.config.safe.directory = [ flakePath ];
 
   nix.gc = {
     automatic = true;

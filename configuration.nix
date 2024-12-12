@@ -90,6 +90,8 @@
   programs.vim.defaultEditor = true;
   programs.vim.enable = true;
 
+  programs.git.enable = true;
+
   programs.tmux = {
     enable = true;
     clock24 = true;
