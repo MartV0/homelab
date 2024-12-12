@@ -9,10 +9,12 @@
   outputs = { self, nixpkgs, staticSite, sops-nix }@inputs: let
     hostname= "nixospi";
     system = "aarch-linux";
+    username = "martijn"; # TODO: vervang martijn overal
+    flakePath = "/home/${username}/.flake";
   in {
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit hostname system inputs staticSite; };
+        specialArgs = { inherit hostname system flakePath inputs staticSite; };
         inherit system;
         modules = [ ./configuration.nix sops-nix.nixosModules.sops ];
       };

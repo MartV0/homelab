@@ -11,7 +11,7 @@
       # ./services/seafile.nix
       ./services/caddy.nix
       ./admin/ssh.nix
-      # ./system/autoupdate.nix
+      ./system/autoupdate.nix
       ./system/datadisk.nix
     ];
 
