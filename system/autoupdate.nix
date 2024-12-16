@@ -16,6 +16,7 @@
         User = "martijn";
       };
       before = ["nixos-upgrade.service"];
+      requiredBy = ["nixos-upgrade.service"];
       path = [pkgs.nix pkgs.git pkgs.host];
     };
   };
