@@ -21,7 +21,7 @@
         modules = [ ./machines/pi4/configuration.nix sops-nix.nixosModules.sops ];
       };
       ${hostnamenuc} = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit flakePath inputs staticSite; hostname=hostnamepi; system=system_x86; };
+        specialArgs = { inherit flakePath inputs staticSite; hostname=hostnamenuc; system=system_x86; };
         system = system_x86;
         modules = [ ./machines/nuc/configuration.nix sops-nix.nixosModules.sops ];
       };

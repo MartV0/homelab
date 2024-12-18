@@ -47,8 +47,10 @@
       init = {
         defaultBranch = "main";
       };
+      pull.rebase = true;
+      user.email = "martijnvoordouw@gmail.com";
+      user.name = "MartV0";
     };
-    pull.rebase = true;
   };
 
   programs.tmux = {
