@@ -41,7 +41,15 @@
   programs.vim.defaultEditor = true;
   programs.vim.enable = true;
 
-  programs.git.enable = true;
+  programs.git = { 
+    enable = true;
+    config = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
+    pull.rebase = true;
+  };
 
   programs.tmux = {
     enable = true;
