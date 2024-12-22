@@ -3,10 +3,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     staticSite.url = "github:MartV0/personal-site";
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, staticSite, sops-nix }@inputs: let
+  outputs = { self, nixpkgs, staticSite, agenix }@inputs: let
     hostnamepi= "nixospi";
     hostnamenuc= "nixos-nuc";
     system_aarch = "aarch-linux";
@@ -16,14 +16,14 @@
   in {
     nixosConfigurations = {
       ${hostnamepi} = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit flakePath inputs staticSite; hostname=hostnamepi; system=system_aarch; };
+        specialArgs = { inherit flakePath inputs staticSite username agenix; hostname=hostnamepi; system=system_aarch; };
         system = system_aarch;
-        modules = [ ./machines/pi4/configuration.nix sops-nix.nixosModules.sops ];
+        modules = [ ./machines/pi4/configuration.nix agenix.nixosModules.default ];
       };
       ${hostnamenuc} = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit flakePath inputs staticSite; hostname=hostnamenuc; system=system_x86; };
+        specialArgs = { inherit flakePath inputs staticSite username agenix; hostname=hostnamenuc; system=system_x86; };
         system = system_x86;
-        modules = [ ./machines/nuc/configuration.nix sops-nix.nixosModules.sops ];
+        modules = [ ./machines/nuc/configuration.nix agenix.nixosModules.default ];
       };
     };
   };

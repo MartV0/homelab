@@ -17,3 +17,7 @@ alias upre := update-rebuild
 
 gc:
   sudo nix-collect-garbage --delete-older-than 30d
+
+[working-directory: 'services/seafile']
+rebuild-seafile-compose:
+  sudo compose2nix --inputs=seafile-server.yml --output=seafile-server-compose.nix --env_files=/run/agenix/seafile-secrets.env,seafile.env --include_env_files=true --runtime=docker

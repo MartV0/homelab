@@ -1,3 +1,4 @@
+name: seafile
 services:
   db:
     image: ${SEAFILE_DB_IMAGE:-mariadb:10.11}
@@ -35,7 +36,7 @@ services:
     image: ${SEAFILE_IMAGE:-seafileltd/seafile-mc:12.0-latest}
     container_name: seafile
     ports:
-      - "127.0.0.1:8083:8083"
+      - "8083:8083"
     volumes:
       - ${SEAFILE_VOLUME:-/opt/seafile-data}:/shared
     environment:

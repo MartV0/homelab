@@ -1,9 +1,9 @@
-{ pkgs, hostname, ... }:
+{ pkgs, hostname, username, agenix, system, ... }:
 
 {
   imports =
     [ 
-      # ./../services/seafile.nix
+      ./../services/seafile/seafile.nix
       ./../services/caddy.nix
       ./../admin/ssh.nix
       ./../system/autoupdate.nix
@@ -36,6 +36,8 @@
     sqlite
     jq
     just
+    agenix.packages.${system}.default
+    compose2nix
   ];
 
   programs.vim.defaultEditor = true;
@@ -62,6 +64,10 @@
     80
     443
   ];
+
+  programs.ssh.extraConfig = ''
+    IdentityFile /home/${username}/.ssh/id_ed25519
+  '';
 
   # networking.firewall.allowedUDPPorts = [ ... ];
 
