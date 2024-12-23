@@ -23,7 +23,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    dates = "03:00";
+    dates = "3:00";
     flake = flakePath;
     allowReboot = true;
   };
