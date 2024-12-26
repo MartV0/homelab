@@ -20,7 +20,7 @@ gc:
 
 [working-directory: 'services/seafile']
 rebuild-seafile-compose: && chown-stuff
-  sudo compose2nix --inputs=seafile-server.yml --output=seafile-server-compose.nix --env_files=/run/agenix/seafile-secrets.env,seafile.env --include_env_files=true --runtime=docker
+  sudo compose2nix --inputs=seafile-server.yml --output=seafile-server-compose.nix --env_files=/run/agenix/seafile-secrets.env,seafile.env --include_env_files=true --env_files_only=true --runtime=docker
 
 chown-stuff:
   sudo chown -R martijn .

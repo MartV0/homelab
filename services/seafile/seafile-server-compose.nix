@@ -12,25 +12,6 @@
   # Containers
   virtualisation.oci-containers.containers."seafile" = {
     image = "seafileltd/seafile-mc:12.0-latest";
-    environment = {
-      "DB_HOST" = "db";
-      "DB_PASSWORD" = "%K(UvK2?!Olc{:FrB6uS";
-      "DB_PORT" = "3306";
-      "DB_ROOT_PASSWD" = "%K(UvK2?!Olc{:FrB6uS";
-      "ENABLE_SEADOC" = "false";
-      "INIT_SEAFILE_ADMIN_EMAIL" = "martijnvoordouw@gmail.com";
-      "INIT_SEAFILE_ADMIN_PASSWORD" = "mNy$MBU9RpW?&e4j7Nr%F";
-      "JWT_PRIVATE_KEY" = "wugnG32Oiw39QSYLxfXW1gTUhimMEU20KC6ZteXS";
-      "NON_ROOT" = "false";
-      "SEADOC_SERVER_URL" = "http://seafile.example.com/sdoc-server";
-      "SEAFILE_MYSQL_DB_CCNET_DB_NAME" = "ccnet_db";
-      "SEAFILE_MYSQL_DB_SEAFILE_DB_NAME" = "seafile_db";
-      "SEAFILE_MYSQL_DB_SEAHUB_DB_NAME" = "seahub_db";
-      "SEAFILE_SERVER_HOSTNAME" = "seafile.martijnv.com";
-      "SEAFILE_SERVER_PROTOCOL" = "https";
-      "SITE_ROOT" = "/";
-      "TIME_ZONE" = "Etc/UTC";
-    };
     environmentFiles = [
       "/home/martijn/.flake/services/seafile/seafile.env"
       "/run/agenix/seafile-secrets.env"
@@ -39,7 +20,7 @@
       "/opt/seafile-data:/shared:rw"
     ];
     ports = [
-      "8083:8083/tcp"
+      "127.0.0.1:8083:80/tcp"
     ];
     labels = {
       "caddy" = "https://seafile.martijnv.com";
@@ -104,11 +85,6 @@
   };
   virtualisation.oci-containers.containers."seafile-mysql" = {
     image = "mariadb:10.11";
-    environment = {
-      "MARIADB_AUTO_UPGRADE" = "1";
-      "MYSQL_LOG_CONSOLE" = "true";
-      "MYSQL_ROOT_PASSWORD" = "%K(UvK2?!Olc{:FrB6uS";
-    };
     environmentFiles = [
       "/home/martijn/.flake/services/seafile/seafile.env"
       "/run/agenix/seafile-secrets.env"

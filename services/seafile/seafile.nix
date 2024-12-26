@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let url = "seafile.martijnv.com"; in {
   imports = [
-    ./seafile-server-compose.nix
+    # ./seafile-server-compose.nix
   ]; 
 
   age.secrets."seafile-secrets.env".file = ./../../secrets/seafile-secrets.env;

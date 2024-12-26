@@ -38,6 +38,7 @@
     just
     agenix.packages.${system}.default
     compose2nix
+    docker-compose
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
