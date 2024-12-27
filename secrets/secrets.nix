@@ -6,4 +6,5 @@ let
 in
 {
   "seafile-secrets.env".publicKeys = keys;
+  "nextcloud-passwd".publicKeys = keys;
 }
