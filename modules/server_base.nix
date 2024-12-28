@@ -3,7 +3,8 @@
 {
   imports =
     [ 
-      ./../services/seafile/seafile.nix
+      ./../services/seafile.nix
+      ./../services/nextcloud.nix
       ./../services/caddy.nix
       ./../admin/ssh.nix
       ./../system/autoupdate.nix
@@ -39,6 +40,7 @@
     agenix.packages.${system}.default
     compose2nix
     docker-compose
+    tree
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
