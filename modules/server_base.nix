@@ -3,7 +3,7 @@
 {
   imports =
     [ 
-      ./../services/seafile.nix
+      ./../services/seafile/seafile.nix
       ./../services/nextcloud.nix
       ./../services/caddy.nix
       ./../admin/ssh.nix
@@ -23,7 +23,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "seafile" ]; # Enable ‘sudo’ for the user.
     packages = [];
-    uid = 1001;
   };
 
   environment.systemPackages = with pkgs; [
