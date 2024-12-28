@@ -1,6 +1,7 @@
-{ ... }:
+{ config, lib, pkgs, ... }:
 let url = "seafile.martijnv.com"; in {
   services.seafile = {
+    # enable = false;
     enable = true;
     adminEmail = "martijnvoordouw@gmail.com";
     seahubAddress = "127.0.0.1:8083";
@@ -14,11 +15,11 @@ let url = "seafile.martijnv.com"; in {
         host = "ipv4:127.0.0.1";
       };
     };
-    gc.enable = true;
+    gc.enable = true; # TODO garbage collection?
     ccnetSettings.General.SERVICE_URL = "https://${url}";
     user = "seafile";
     group = "seafile";
-    workers = 2;
+    # workers = 4;
   };
 
   users.users.seafile = { 
@@ -27,7 +28,14 @@ let url = "seafile.martijnv.com"; in {
   };
   users.groups.seafile = {};
 
-  services.caddy.virtualHosts."${url}".extraConfig = ''
-    reverse_proxy localhost:8083
-  '';
+  # create seafile directory if it doesn't exist yet (not temporary like the option name suggests)
+  systemd.tmpfiles.rules = [
+    "d /datadisk/seafile 0777 seafile seafile" 
+    "d /datadisk/seafile/data 0777 seafile seafile" 
+    # hacky
+    # "L+ /var/lib/seafile/data - - - - /datadisk/seafile/data" 
+  ];
+ 
+  systemd.services.seaf-server.after = [ "datadisk.mount" ];
+  systemd.services.seaf-server.requires = [ "datadisk.mount" ];
 }
