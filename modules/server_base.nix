@@ -4,7 +4,6 @@
   imports =
     [ 
       ./../services/seafile/seafile.nix
-      ./../services/nextcloud.nix
       ./../services/caddy.nix
       ./../admin/ssh.nix
       ./../system/autoupdate.nix

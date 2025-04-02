@@ -18,7 +18,7 @@ let url = "seafile.martijnv.com"; in {
     wantedBy = ["multi-user.target"]; # Start during boot
     after = [ "docker.service" ];
     script = ''
-      docker compose -f ${current_dir}/seafile-server.yml --env-file ${current_dir}/seafile.env --env-file /run/agenix/seafile-secrets.env up --build --quiet-pull
+      docker compose -f ${current_dir}/seafile-server.yml --env-file ${current_dir}/seafile.env --env-file /run/agenix/seafile-secrets.env up --pull always --quiet-pull
     '';
     preStop = ''
       docker compose -f ${current_dir}/seafile-server.yml --env-file ${current_dir}/seafile.env --env-file /run/agenix/seafile-secrets.env down
