@@ -5,6 +5,7 @@
     [ 
       ./../services/seafile/seafile.nix
       ./../services/caddy.nix
+      ./../services/minecraft.nix
       ./../admin/ssh.nix
       ./../system/autoupdate.nix
       ./../system/datadisk.nix
@@ -66,6 +67,7 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
+    25565 # minecraft
   ];
 
   programs.ssh.extraConfig = ''
