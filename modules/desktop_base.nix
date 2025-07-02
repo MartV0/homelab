@@ -1,4 +1,3 @@
-
 { pkgs, hostname, username, agenix, system, ... }:
 {
   imports =
@@ -54,12 +53,100 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+
+      # qtile/wm packages
+      arandr
+      blueman
+      brightnessctl
+      flameshot
+      font-manager
+      lxappearance
+      networkmanager
+      networkmanagerapplet
+      pavucontrol
+      picom
+      rofi
+      xfce.thunar
+      xwallpaper
+      
+      # terminal/shell stuff
+      alacritty
+      btop
+      cowsay
+      lolcat
+      eza
+      fastfetch
+      fortune-kind
+      fzf
+      ranger
+      zoxide
+      zsh
+      
+      # dev stuff
+      dotnet-sdk # maybe install more version
+      emacs
+      neovim
+      # nvim dependecies
+      ripgrep
+      gcc
+      nodePackages.npm
+      nodejs
+      python3Full
+      python311Packages.pip
+      # emacs dependecies TODO latex
+      texliveFull
+
+      
+      # gui applications
+      discord
+      firefox
+      gnucash
+      kdePackages.filelight
+      kdePackages.okular
+      keepassxc
+      nextcloud-client
+      obs-studio
+      qalculate-gtk
+      rpi-imager
+      thunderbird
+      tor-browser
+      vlc
+      zathura
+      
+      # tools/utilities
+      ffmpeg
+      gparted
+      pandoc
+      rar
+      rclone
+      stow
+      tree
+      unrar
+      unzip # also for mason.nvim
+      youtube-dl
+      
+      # driver stuff
+      hplip
+      ntfs3g # ntfs support
     ];
   };
 
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
+    vim
+    btrfs-progs
+    cron
+    git
+    wget
+    fish
+    killall
+    # kde stuff
+    aspell
+    aspellDicts.en
+    aspellDicts.nl
+    aspellDicts.en-computers
+    aspellDicts.en-science
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
