@@ -23,6 +23,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.xserver.windowManager.qtile.enable = true;
   services.xserver.enable = true;
 
   # Configure keymap in X11
@@ -73,11 +74,14 @@
       alacritty
       btop
       cowsay
-      lolcat
       eza
       fastfetch
       fortune-kind
       fzf
+      lolcat
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.caskaydia-mono
+      nerd-fonts.symbols-only
       ranger
       zoxide
       zsh
@@ -88,6 +92,7 @@
       neovim
       # nvim dependecies
       ripgrep
+      fd
       gcc
       nodePackages.npm
       nodejs
@@ -116,6 +121,7 @@
       # tools/utilities
       ffmpeg
       gparted
+      kdePackages.partitionmanager
       pandoc
       rar
       rclone
@@ -123,11 +129,27 @@
       tree
       unrar
       unzip # also for mason.nvim
-      youtube-dl
+      yt-dlp
       
       # driver stuff
       hplip
       ntfs3g # ntfs support
+
+      # language servers:
+      pyright
+      csharp-ls
+      haskell-language-server
+      nil
+      typescript-language-server
+      vue-language-server
+      lua-language-server
+      rust-analyzer
+
+      # formatters/linters
+      black
+      nodePackages.prettier
+      python313Packages.flake8
+      eslint
     ];
   };
 
