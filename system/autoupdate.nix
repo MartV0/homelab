@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, flakePath, ... }:
+{ pkgs, username, flakePath, ... }:
 {
   systemd.services = {
     flake-update = {
@@ -13,7 +13,7 @@
         Restart = "on-failure";
         RestartSec = "30";
         Type = "oneshot"; # Ensure that it finishes before starting nixos-upgrade
-        User = "martijn";
+        User = "${username}";
       };
       before = ["nixos-upgrade.service"];
       requiredBy = ["nixos-upgrade.service"];

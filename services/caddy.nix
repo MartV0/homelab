@@ -1,4 +1,4 @@
-{ config, lib, pkgs, staticSite, ... }:
+{ staticSite, ... }:
 {
   services.caddy = {
     enable = true;

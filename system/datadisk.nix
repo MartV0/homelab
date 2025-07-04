@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ ... }:
 {
   fileSystems."/datadisk" = {
     device = "/dev/disk/by-label/datadisk";

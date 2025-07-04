@@ -1,7 +1,7 @@
-{ config, lib, pkgs, username, ... }:
+{ config, username, ... }:
 
 let
-  dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/martijn/dotfiles";
+  dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/${username}/dotfiles";
 in
 {
   xdg.configFile = {

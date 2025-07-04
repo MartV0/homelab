@@ -17,7 +17,7 @@
     hostnamevm= "nixos-vm";
     system_aarch = "aarch-linux";
     system_x86 = "x86_64-linux";
-    username = "martijn"; # TODO: vervang martijn overal
+    username = "martijn";
     flakePath = "/home/${username}/.flake";
       in {
     nixosConfigurations = {

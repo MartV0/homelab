@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ username, ... }:
 {
   services.openssh = {
     enable = true;
@@ -7,12 +7,11 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ "martijn" ]; # TODO: this should use a shared variable or something with configuration.nix
+      AllowUsers = [ "${username}" ];
     };
   };
 
-  # TODO: also use var here
-  users.users.martijn.openssh.authorizedKeys.keys = [
+  users.users."${username}".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAeg9i8IMHJsL1CWjBdiH8cuYm7ssAwDwd8d/3soZftC martijn@localhost.localdomain"
   ];
 

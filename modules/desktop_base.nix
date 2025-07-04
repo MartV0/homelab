@@ -1,4 +1,4 @@
-{ pkgs, hostname, username, agenix, system, ... }:
+{ pkgs, username, ... }:
 {
   imports =
     [ 
@@ -48,9 +48,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  users.users.martijn = {
+  users.users."${username}" = {
     isNormalUser = true;
-    description = "martijn";
+    description = "${username}";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate

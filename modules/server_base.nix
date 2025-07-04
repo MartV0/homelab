@@ -13,7 +13,7 @@
     ];
 
 
-  users.users.martijn = {
+  users.users."${username}" = {
     isNormalUser = true;
     extraGroups = [ "wheel" "seafile" ]; # Enable ‘sudo’ for the user.
     packages = [];
