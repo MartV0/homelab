@@ -6,10 +6,15 @@
     staticSite.url = "github:MartV0/personal-site";
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, staticSite, agenix, nixpkgs-unstable }@inputs: let
+  outputs = { self, nixpkgs, staticSite, agenix, home-manager, nixpkgs-unstable }@inputs: let
     hostnamepi= "nixospi";
     hostnamenuc= "nixos-nuc";
+    hostnamevm= "nixos-vm";
     system_aarch = "aarch-linux";
     system_x86 = "x86_64-linux";
     username = "martijn"; # TODO: vervang martijn overal
@@ -33,6 +38,11 @@
         };
         system = system_x86;
         modules = [ ./machines/nuc/configuration.nix agenix.nixosModules.default ];
+      };
+      ${hostnamevm} = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit flakePath inputs username agenix; hostname=hostnamevm; system=system_x86; };
+        system = system_x86;
+        modules = [ ./machines/vm/configuration.nix agenix.nixosModules.default ];
       };
     };
   };
