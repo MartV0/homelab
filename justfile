@@ -25,3 +25,6 @@ rebuild-seafile-compose: && chown-stuff
 chown-stuff:
   sudo chown -R martijn .
   sudo chgrp -R users .
+
+pull-theirs:
+  git pull -s recursive -X theirs
