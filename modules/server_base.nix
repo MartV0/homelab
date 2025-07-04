@@ -9,7 +9,7 @@
       ./../system/autoupdate.nix
       ./../system/datadisk.nix
       ./common_base.nix
-      ./dev_base.nix
+      ./terminal_dev.nix
     ];
 
 

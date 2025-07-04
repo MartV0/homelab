@@ -3,7 +3,7 @@
   imports =
     [ 
       ./common_base.nix
-      ./dev_base.nix
+      ./terminal_dev.nix
     ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -72,36 +72,10 @@
       
       # terminal/shell stuff
       alacritty
-      btop
-      cowsay
-      eza
-      fastfetch
-      fortune-kind
-      fzf
-      lolcat
       nerd-fonts.caskaydia-cove
       nerd-fonts.caskaydia-mono
       nerd-fonts.symbols-only
-      ranger
-      zoxide
-      zsh
-      
-      # dev stuff
-      dotnet-sdk # maybe install more version
-      emacs
-      neovim
-      # nvim dependecies
-      ripgrep
-      fd
-      gcc
-      nodePackages.npm
-      nodejs
-      python3Full
-      python311Packages.pip
-      # emacs dependecies TODO latex
-      texliveFull
 
-      
       # gui applications
       discord
       firefox
@@ -123,46 +97,17 @@
       gparted
       kdePackages.partitionmanager
       pandoc
-      rar
-      rclone
-      stow
-      tree
-      unrar
-      unzip # also for mason.nvim
+      texliveFull
       yt-dlp
       
       # driver stuff
       hplip
-      ntfs3g # ntfs support
-
-      # language servers:
-      pyright
-      csharp-ls
-      haskell-language-server
-      nil
-      typescript-language-server
-      vue-language-server
-      lua-language-server
-      rust-analyzer
-
-      # formatters/linters
-      black
-      nodePackages.prettier
-      python313Packages.flake8
-      eslint
     ];
   };
 
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
-    vim
-    btrfs-progs
-    cron
-    git
-    wget
-    fish
-    killall
     # kde stuff
     aspell
     aspellDicts.en
