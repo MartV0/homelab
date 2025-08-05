@@ -130,11 +130,11 @@
     },
     "staticSite": {
       "locked": {
-        "lastModified": 1744646336,
-        "narHash": "sha256-xUNa/oWp8kx94v4xas9KKq4YOHlsix3+7senY4n3W7c=",
+        "lastModified": 1754408432,
+        "narHash": "sha256-UpzzsbJT9HMnn6OZi78kTm4Sk5Jlw7F+xIciK3eIn7k=",
         "owner": "MartV0",
         "repo": "personal-site",
-        "rev": "c744ade4a88072b167cf5051f4367898bd4fd221",
+        "rev": "6737c7003586dbb3c6b48132c29ab71fa58882df",
         "type": "github"
       },
       "original": {
