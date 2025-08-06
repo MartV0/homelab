@@ -2,7 +2,7 @@ default:
   just --list
 
 rebuild:
-  sudo nixos-rebuild switch --fast --flake "$(pwd)"
+  sudo nixos-rebuild switch --fast --flake "$(pwd)" --impure
 
 up:
   nix flake update
@@ -11,7 +11,7 @@ upc:
   nix flake update --commit-lock-file
 
 update-rebuild: upc
-  sudo nixos-rebuild switch --fast --flake "$(pwd)"
+  sudo nixos-rebuild switch --fast --flake "$(pwd)" --impure
 
 alias upre := update-rebuild
 
