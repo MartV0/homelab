@@ -22,6 +22,10 @@
 	password = lib.removeSuffix "\n"
 	         (builtins.readFile config.age.secrets.isso-admin-passwd.path);
       };
+      rss = {
+        limit = 50;
+        base = "https://martijnv.com/";
+      };
     };
   };
 }
