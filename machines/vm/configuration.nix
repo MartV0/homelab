@@ -16,4 +16,5 @@
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true; # vm integration
   xdg.autostart.enable = true; # needed voor spice-vdagent to start I think?
+  services.xserver.videoDrivers = [ "modesetting" ];
 }

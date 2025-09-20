@@ -9,6 +9,7 @@
     extraSpecialArgs = {inherit inputs outputs username;};
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bak";
     users = {
       ${username} = {
         imports = [
