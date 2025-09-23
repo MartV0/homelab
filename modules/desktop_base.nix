@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, username, pkgs-unstable, ... }:
 {
   imports =
     [ 
@@ -48,11 +48,25 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "com.spotify.Client"
+      "app.zen_browser.zen"
+    ];
+  };
+
+
+  programs.niri.enable = true;
+
   users.users."${username}" = {
     isNormalUser = true;
     description = "${username}";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
+    packages = let 
+        unstable = [ pkgs-unstable.rofi ]; 
+      in 
+      with pkgs; [
       kdePackages.kate
 
       # qtile/wm packages
@@ -66,15 +80,20 @@
       networkmanagerapplet
       pavucontrol
       picom
-      rofi
       xfce.thunar
       xwallpaper
+
+      # wayland wm
+      swww
+      waybar
+      xwayland-satellite
       
       # terminal/shell stuff
       alacritty
       nerd-fonts.caskaydia-cove
       nerd-fonts.caskaydia-mono
       nerd-fonts.symbols-only
+      nerd-fonts.jetbrains-mono
 
       # gui applications
       discord
@@ -83,6 +102,7 @@
       kdePackages.filelight
       kdePackages.okular
       keepassxc
+      libreoffice
       nextcloud-client
       obs-studio
       qalculate-gtk
@@ -102,7 +122,7 @@
       
       # driver stuff
       hplip
-    ];
+    ] ++ unstable;
   };
 
   programs.firefox.enable = true;
