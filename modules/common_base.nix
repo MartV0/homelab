@@ -38,10 +38,15 @@
     agenix.packages.${system}.default
     tree
     home-manager
+    isd
   ];
 
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      download-buffer-size = 500000000;
+    };
+  };
 
   programs.vim.defaultEditor = true;
   programs.vim.enable = true;

@@ -25,6 +25,7 @@
     enable = true;
     dates = "3:00";
     flake = flakePath;
+    flags = [ "--impure" ];
     allowReboot = true;
   };
 
