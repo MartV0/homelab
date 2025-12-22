@@ -28,8 +28,7 @@
     gcc
     nodePackages.npm
     nodejs
-    python3Full
-    python311Packages.pip
+    python315
 
     # tools/utilities
     btrfs-progs
