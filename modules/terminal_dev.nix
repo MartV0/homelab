@@ -14,6 +14,7 @@
     fzf
     lolcat
     ranger
+    inetutils
     zoxide
     zsh
 

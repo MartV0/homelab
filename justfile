@@ -28,3 +28,6 @@ chown-stuff:
 
 pull-theirs:
   git pull -s recursive -X theirs
+
+generations:
+  nixos-rebuild list-generations
