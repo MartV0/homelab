@@ -57,7 +57,7 @@
           pkgs-unstable = import nixpkgs-unstable { system=system_x86; config.allowUnfree = true; };
         };
         system = system_x86;
-        modules = [ ./machines/game-pc/configuration.nix agenix.nixosModules.default];
+        modules = [ ./machines/game-pc/configuration.nix agenix.nixosModules.default nix-flatpak.nixosModules.nix-flatpak];
       };
     };
   };

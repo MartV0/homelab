@@ -1,4 +1,4 @@
-{ config, username, ... }:
+{ config, username, pkgs, ... }:
 
 let
   dotfiles = config.lib.file.mkOutOfStoreSymlink "/home/${username}/dotfiles";
@@ -25,5 +25,6 @@ in
     ".latexmkrc".source = "${dotfiles}/.latexmkrc";
     "autostart.sh".source = "${dotfiles}/autostart.sh";
     "drive.sh".source = "${dotfiles}/drive.sh";
+    ".local/share/icons/phinger-cursors".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
   };
 }
