@@ -1,6 +1,7 @@
 { pkgs, username, flakePath, ... }:
 {
   systemd.services = {
+    # This services updates the flake inputs
     flake-update = {
       preStart = "${pkgs.host}/bin/host example.com";  # Check network connectivity
       unitConfig = {
@@ -18,6 +19,25 @@
       before = ["nixos-upgrade.service"];
       requiredBy = ["nixos-upgrade.service"];
       path = [pkgs.nix pkgs.git pkgs.host];
+    };
+    # This services pushes the updates to the git repo
+    push-update = {
+      preStart = "${pkgs.host}/bin/host example.com";  # Check network connectivity
+      unitConfig = {
+        Description = "Push to repo after flake update";
+        StartLimitIntervalSec = 300;
+        StartLimitBurst = 5;
+      };
+      serviceConfig = {
+        ExecStartPre = "${pkgs.git}/bin/git pull";
+        ExecStart = "${pkgs.git}/bin/git push";
+        Restart = "no";
+        Type = "exec";
+        User = "${username}";
+      };
+      after = ["flake-update.service"];
+      requiredBy = ["flake-update.service"];
+      path = [ pkgs.git ];
     };
   };
 
