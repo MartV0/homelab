@@ -60,6 +60,7 @@
       pull.rebase = false;
       user.email = "martijnvoordouw@gmail.com";
       user.name = "MartV0";
+      commit.gpgsign = false;
     };
   };
 

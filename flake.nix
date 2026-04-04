@@ -16,6 +16,7 @@
     hostnamepi= "nixospi";
     hostnamenuc= "nixos-nuc";
     hostnamevm= "nixos-vm";
+    hostnamepc= "nixos";
     system_aarch = "aarch-linux";
     system_x86 = "x86_64-linux";
     username = "martijn";
@@ -48,6 +49,15 @@
         };
         system = system_x86;
         modules = [ ./machines/vm/configuration.nix agenix.nixosModules.default nix-flatpak.nixosModules.nix-flatpak];
+      };
+      ${hostnamepc} = nixpkgs.lib.nixosSystem {
+        specialArgs = { 
+          inherit flakePath inputs username agenix; 
+          hostname=hostnamepc; system=system_x86;
+          pkgs-unstable = import nixpkgs-unstable { system=system_x86; config.allowUnfree = true; };
+        };
+        system = system_x86;
+        modules = [ ./machines/game-pc/configuration.nix agenix.nixosModules.default nix-flatpak.nixosModules.nix-flatpak];
       };
     };
   };

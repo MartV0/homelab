@@ -4,6 +4,8 @@
     [ 
       ./common_base.nix
       ./terminal_dev.nix
+      ./window_managers/kde.nix
+      ./window_managers/niri.nix
     ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -19,12 +21,6 @@
     LC_TELEPHONE = "nl_NL.UTF-8";
     LC_TIME = "nl_NL.UTF-8";
   };
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.xserver.windowManager.qtile.enable = true;
-  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -51,43 +47,23 @@
   services.flatpak = {
     enable = true;
     packages = [
-      "com.spotify.Client"
       "app.zen_browser.zen"
     ];
   };
-
-
-  programs.niri.enable = true;
 
   users.users."${username}" = {
     isNormalUser = true;
     description = "${username}";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = let 
-        unstable = [ pkgs-unstable.rofi ]; 
-      in 
-      with pkgs; [
-      kdePackages.kate
+    packages = with pkgs; [];
+  };
 
-      # qtile/wm packages
-      arandr
-      blueman
-      brightnessctl
-      flameshot
-      font-manager
-      lxappearance
-      networkmanager
-      networkmanagerapplet
-      pavucontrol
-      picom
-      xfce.thunar
-      xwallpaper
+  programs.firefox.enable = true;
 
-      # wayland wm
-      swww
-      waybar
-      xwayland-satellite
-      
+  environment.systemPackages = let 
+      unstable = [ pkgs-unstable.seadrive-gui ]; 
+    in 
+    with pkgs; [
       # terminal/shell stuff
       alacritty
       nerd-fonts.caskaydia-cove
@@ -103,7 +79,6 @@
       kdePackages.okular
       keepassxc
       libreoffice
-      nextcloud-client
       obs-studio
       qalculate-gtk
       rpi-imager
@@ -111,6 +86,7 @@
       tor-browser
       vlc
       zathura
+      seafile-client
       
       # tools/utilities
       ffmpeg
@@ -119,22 +95,23 @@
       pandoc
       texliveFull
       yt-dlp
+      gnome-disk-utility
       
       # driver stuff
       hplip
-    ] ++ unstable;
+  ] ++ unstable;
+
+  # autostart seadrive
+  systemd.user.services.seadrive = {
+    description = "Autostart seadrive";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "seadrive-gui";
+    };
   };
-
-  programs.firefox.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    # kde stuff
-    aspell
-    aspellDicts.en
-    aspellDicts.nl
-    aspellDicts.en-computers
-    aspellDicts.en-science
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
