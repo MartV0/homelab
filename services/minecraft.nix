@@ -1,4 +1,4 @@
-{ config, lib, pkgs-unstable, staticSite, ... }:
+{ pkgs-unstable, ... }:
 {
   services.minecraft-server = {
     enable = true;

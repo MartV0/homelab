@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-
+# based on: https://geanmar.com/posts/how-to-setup-nvim-on-nixos/
 with lib;
 let
   build-dependent-pkgs = with pkgs;
@@ -91,6 +91,7 @@ in {
         fd
         dotnet-sdk
         luajitPackages.luarocks
+        tree-sitter
       ];
 
     extraLuaPackages = ls: with ls; [ luarocks ];

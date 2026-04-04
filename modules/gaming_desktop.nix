@@ -6,11 +6,15 @@
     extraGroups = ["gamemode"];
   };
 
+  # makes some wine programs run better
+  boot.kernelModules = [ "ntsync" ];
+
   environment.systemPackages = with pkgs; [ 
     gamemode
     gamescope
     mangohud
   ];
+  # TODO: flake to make this declarative: https://github.com/different-name/steam-config-nix/blob/master/options.md
   # cs launch options
   # SDL_AUDIO_DRIVER=pulse gamescope -w 1728 -h 1080 -S stretch -f --force-grab-cursor -- %command% -vulkan
 
@@ -18,7 +22,7 @@
     enable = true;
     package = pkgs.steam.override {
       extraEnv = {
-        # MANGOHUD = "1";
+        MANGOHUD = "0";
         GAMEMODERUN = "1";
       };
     };

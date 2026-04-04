@@ -95,9 +95,11 @@
       krita
       pinta
       zathura
+      xdotool # required by zathura for forward search
       seafile-client
       localsend
       emacs-gtk
+      qbittorrent
 
       # uni stuff
       zotero
