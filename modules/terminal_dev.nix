@@ -12,6 +12,7 @@
     fish
     fortune-kind
     fzf
+    mlocate
     lolcat
     ranger
     inetutils
@@ -20,7 +21,6 @@
 
     # dev stuff
     dotnet-sdk # maybe install more version
-    emacs
     neovim
     # nvim dependecies
     ripgrep

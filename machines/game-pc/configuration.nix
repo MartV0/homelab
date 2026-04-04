@@ -4,7 +4,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./../../modules/desktop_base.nix
+      ./../../modules/gaming_desktop.nix
     ];
 
   # Bootloader.

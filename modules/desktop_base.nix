@@ -73,20 +73,33 @@
 
       # gui applications
       discord
+      signal-desktop
       firefox
       gnucash
       kdePackages.filelight
       kdePackages.okular
       keepassxc
       libreoffice
+      marktext
       obs-studio
       qalculate-gtk
       rpi-imager
       thunderbird
       tor-browser
       vlc
+      pragha
+      tidal-hifi
+      krita
+      pinta
       zathura
       seafile-client
+      localsend
+      emacs-gtk
+
+      # uni stuff
+      zotero
+      jetbrains.idea
+      teams-for-linux
       
       # tools/utilities
       ffmpeg
@@ -103,13 +116,14 @@
 
   # autostart seadrive
   systemd.user.services.seadrive = {
+    path = [ pkgs-unstable.seadrive-gui ];
     description = "Autostart seadrive";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wantedBy = [ "niri.service" ];
+    wants = [ "niri.service" ];
+    after = [ "niri.service" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "seadrive-gui";
+      ExecStart = "${pkgs-unstable.seadrive-gui}/bin/seadrive-gui";
     };
   };
 

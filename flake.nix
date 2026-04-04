@@ -16,7 +16,7 @@
     hostnamepi= "nixospi";
     hostnamenuc= "nixos-nuc";
     hostnamevm= "nixos-vm";
-    hostnamepc= "nixos";
+    hostnamepc= "nixos-gamepc";
     system_aarch = "aarch-linux";
     system_x86 = "x86_64-linux";
     username = "martijn";

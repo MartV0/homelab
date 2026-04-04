@@ -37,6 +37,7 @@
     just
     agenix.packages.${system}.default
     tree
+    ncdu
     home-manager
     isd
   ];

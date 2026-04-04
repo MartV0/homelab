@@ -8,6 +8,7 @@
       lxappearance
       networkmanager
       networkmanagerapplet
+      imagemagick # for background selector
       pavucontrol
       xfce.thunar
       rofi
