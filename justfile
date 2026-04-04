@@ -31,3 +31,7 @@ pull-theirs:
 
 generations:
   nixos-rebuild list-generations
+
+collect-garbage:
+  sudo nix-collect-garbage --delete-old -v
+  sudo nix-store --optimise -v

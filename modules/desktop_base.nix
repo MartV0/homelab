@@ -4,6 +4,7 @@
     [ 
       ./common_base.nix
       ./terminal_dev.nix
+      ./vpn.nix
       ./window_managers/kde.nix
       ./window_managers/niri.nix
     ];
@@ -61,7 +62,9 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = let 
-      unstable = [ pkgs-unstable.seadrive-gui ]; 
+    unstable = with pkgs-unstable; [ 
+      seadrive-gui
+    ]; 
     in 
     with pkgs; [
       # terminal/shell stuff

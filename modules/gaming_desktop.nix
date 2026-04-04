@@ -6,10 +6,22 @@
     extraGroups = ["gamemode"];
   };
 
-  environment.systemPackages = with pkgs; [ gamemode ];
+  environment.systemPackages = with pkgs; [ 
+    gamemode
+    gamescope
+    mangohud
+  ];
+  # cs launch options
+  # SDL_AUDIO_DRIVER=pulse gamescope -w 1728 -h 1080 -S stretch -f --force-grab-cursor -- %command% -vulkan
 
   programs.steam = {
     enable = true;
+    package = pkgs.steam.override {
+      extraEnv = {
+        # MANGOHUD = "1";
+        GAMEMODERUN = "1";
+      };
+    };
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
