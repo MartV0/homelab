@@ -1,4 +1,4 @@
-{ pkgs, hostname, username, agenix, system, inputs, outputs, ... }:
+{ pkgs, hostname, username, agenix, system, inputs, outputs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs outputs username;};
+    extraSpecialArgs = {inherit inputs outputs username pkgs-unstable;};
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";

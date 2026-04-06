@@ -4,7 +4,8 @@
     [ 
       ./common_base.nix
       ./terminal_dev.nix
-      ./vpn.nix
+      ./applications/vpn.nix
+      ./applications/zen-browser.nix
       ./window_managers/kde.nix
       ./window_managers/niri.nix
     ];
@@ -45,13 +46,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "app.zen_browser.zen"
-    ];
-  };
-
   users.users."${username}" = {
     isNormalUser = true;
     description = "${username}";
@@ -64,6 +58,7 @@
   environment.systemPackages = let 
     unstable = with pkgs-unstable; [ 
       seadrive-gui
+      tidal-hifi
     ]; 
     in 
     with pkgs; [
@@ -91,7 +86,6 @@
       tor-browser
       vlc
       pragha
-      tidal-hifi
       krita
       pinta
       zathura

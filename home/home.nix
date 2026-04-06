@@ -11,8 +11,15 @@
 
   home.stateVersion = "24.05";
 
-  home.packages = [
-  ];
+  home.packages = [];
+
+  xdg.desktopEntries.tidal-hifi = {
+    name = "TIDAL Hi-Fi";
+    # --no-sandbox is needed, otherwise white screen
+    exec = "tidal-hifi --no-sandbox";
+    icon = "tidal-hifi";
+    terminal = false;
+  };
 
   home.file = {
   };
