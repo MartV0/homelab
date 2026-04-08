@@ -1,4 +1,4 @@
-{ pkgs, username, pkgs-unstable, ... }:
+{ pkgs, username, pkgs-unstable, nix-flatpak, ... }:
 {
   imports =
     [ 
@@ -8,6 +8,7 @@
       ./applications/zen-browser.nix
       ./window_managers/kde.nix
       ./window_managers/niri.nix
+      nix-flatpak.nixosModules.nix-flatpak 
     ];
 
   i18n.defaultLocale = "en_US.UTF-8";

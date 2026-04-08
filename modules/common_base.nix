@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    agenix.nixosModules.default 
   ];
 
   home-manager = {
