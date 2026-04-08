@@ -22,13 +22,13 @@
     };
     # This services pushes the updates to the git repo
     push-update = {
-      preStart = "${pkgs.host}/bin/host example.com";  # Check network connectivity
       unitConfig = {
         Description = "Push to repo after flake update";
         StartLimitIntervalSec = 300;
         StartLimitBurst = 5;
       };
       serviceConfig = {
+        WorkingDirectory = "${flakePath}";
         ExecStartPre = "${pkgs.git}/bin/git pull";
         ExecStart = "${pkgs.git}/bin/git push";
         Restart = "no";
@@ -37,7 +37,10 @@
       };
       after = ["flake-update.service"];
       requiredBy = ["flake-update.service"];
-      path = [ pkgs.git ];
+      path = [
+      	pkgs.git
+	pkgs.openssh # ssh needed for signing
+      ];
     };
   };
 

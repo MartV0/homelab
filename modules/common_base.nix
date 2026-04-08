@@ -59,7 +59,7 @@
       init = {
         defaultBranch = "main";
       };
-      pull.rebase = false;
+      pull.rebase = true;
       user.email = "martijnvoordouw@gmail.com";
       user.name = "MartV0";
       commit.gpgsign = false;
