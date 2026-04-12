@@ -18,6 +18,9 @@
   # cs launch options
   # SDL_AUDIO_DRIVER=pulse gamescope -w 1728 -h 1080 -S stretch -f --force-grab-cursor -- %command% -vulkan
 
+  # xbox wireless controller support
+  hardware.xpadneo.enable = true;
+
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {

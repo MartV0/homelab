@@ -43,12 +43,12 @@
       ${hostnamevm} = createSystem {
         hostname = hostnamevm;
         system = system_x86;
-        modules = [ ./machines/vm/configuration.nix ];
+        modules = [ ./machines/vm/configuration.nix nix-flatpak.nixosModules.nix-flatpak ];
       };
       ${hostnamepc} = createSystem {
         hostname = hostnamepc;
         system = system_x86;
-        modules = [ ./machines/game-pc/configuration.nix ];
+        modules = [ ./machines/game-pc/configuration.nix nix-flatpak.nixosModules.nix-flatpak ];
       };
     };
   };

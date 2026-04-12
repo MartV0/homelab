@@ -41,6 +41,8 @@
     ncdu
     home-manager
     isd
+    pciutils
+    usbutils
   ];
 
   nix = {

@@ -1,4 +1,4 @@
-{ pkgs, username, pkgs-unstable, nix-flatpak, ... }:
+{ pkgs, username, pkgs-unstable, lib, ... }:
 {
   imports =
     [ 
@@ -8,7 +8,6 @@
       ./applications/zen-browser.nix
       ./window_managers/kde.nix
       ./window_managers/niri.nix
-      nix-flatpak.nixosModules.nix-flatpak 
     ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -125,6 +124,11 @@
       Type = "simple";
       ExecStart = "${pkgs-unstable.seadrive-gui}/bin/seadrive-gui";
     };
+  };
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
