@@ -1,8 +1,20 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 let url = "seafile.martijnv.com"; in {
   age.secrets."seafile-secrets.env".file = ./../../secrets/seafile-secrets.env;
 
-  virtualisation.docker.enable = true;
+  environment.systemPackages = with pkgs; [
+    compose2nix
+    docker-compose
+  ];
+
+  users.users."${username}" = {
+    extraGroups = [ "seafile" ];
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
 
   services.caddy.virtualHosts."${url}".extraConfig = ''
     reverse_proxy localhost:8083

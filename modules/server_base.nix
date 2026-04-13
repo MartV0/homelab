@@ -16,14 +16,11 @@
 
   users.users."${username}" = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "seafile" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = [];
   };
 
-  environment.systemPackages = with pkgs; [
-    compose2nix
-    docker-compose
-  ];
+  environment.systemPackages = with pkgs; [];
 
   networking.firewall.allowedTCPPorts = [
     80
