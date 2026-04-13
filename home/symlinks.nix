@@ -17,6 +17,7 @@ in
     rofi.source = "${dotfiles}/.config/rofi";
     waybar.source = "${dotfiles}/.config/waybar";
     zathura.source = "${dotfiles}/.config/zathura";
+    keepassxc.source = "${dotfiles}/.config/keepassxc";
   };
 
   home.file = {
