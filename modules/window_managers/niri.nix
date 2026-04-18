@@ -26,6 +26,7 @@
 
     # wayland wm
     awww
+    mako
     waybar
     xwayland-satellite
   ];
