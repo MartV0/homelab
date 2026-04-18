@@ -25,7 +25,7 @@
     phinger-cursors
 
     # wayland wm
-    swww
+    awww
     waybar
     xwayland-satellite
   ];
