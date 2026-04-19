@@ -29,5 +29,12 @@
     mako
     waybar
     xwayland-satellite
+    hyprlock
   ];
+
+  # needed by gtk4 apps for compose keys
+  i18n.inputMethod = {
+    enable = true;
+    type = "ibus";
+  };
 }

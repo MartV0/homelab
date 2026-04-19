@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     sqlite
     jq
-      
+
     # terminal/shell stuff
     btop
     cowsay
@@ -61,5 +61,13 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
+  };
+
+  users.users."${username}" = {
+    extraGroups = [ "mlocate" ];
+  };
+
+  users.groups = {
+    mlocate = {};
   };
 }

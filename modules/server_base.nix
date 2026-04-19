@@ -22,6 +22,10 @@
 
   environment.systemPackages = with pkgs; [];
 
+  users.groups = {
+    seafile = {};
+  };
+
   networking.firewall.allowedTCPPorts = [
     80
     443

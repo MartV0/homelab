@@ -6,6 +6,10 @@
     extraGroups = ["gamemode"];
   };
 
+  users.groups = {
+    gamemode = {};
+  };
+
   # makes some wine programs run better
   boot.kernelModules = [ "ntsync" ];
 

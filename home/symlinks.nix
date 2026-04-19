@@ -9,6 +9,8 @@ in
     doom.source = "${dotfiles}/.config/doom";
     fish.source = "${dotfiles}/.config/fish";
     flameshot.source = "${dotfiles}/.config/flameshot";
+    hypr.source = "${dotfiles}/.config/hypr";
+    mako.source = "${dotfiles}/.config/mako";
     niri.source = "${dotfiles}/.config/niri";
     nvim.source = "${dotfiles}/.config/nvim";
     picom.source = "${dotfiles}/.config/picom";
@@ -23,6 +25,8 @@ in
   home.file = {
     ".Xresources".source = "${dotfiles}/.Xresources";
     ".gitconfig".source = "${dotfiles}/.gitconfig";
+    ".gdbinit".source = "${dotfiles}/.gdbinit";
+    ".ssh".source = "${dotfiles}/.ssh";
     ".latexmkrc".source = "${dotfiles}/.latexmkrc";
     "autostart.sh".source = "${dotfiles}/autostart.sh";
     "drive.sh".source = "${dotfiles}/drive.sh";
