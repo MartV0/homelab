@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   imports = [ ./tools.nix ];
 
@@ -25,12 +25,11 @@
     phinger-cursors
 
     # wayland wm
-    awww
     mako
     waybar
     xwayland-satellite
     hyprlock
-  ];
+  ] ++ [ pkgs-unstable.awww ];
 
   # needed by gtk4 apps for compose keys
   i18n.inputMethod = {

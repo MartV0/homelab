@@ -55,18 +55,5 @@
   programs.vim.defaultEditor = true;
   programs.vim.enable = true;
 
-  programs.git = { 
-    enable = true;
-    config = {
-      init = {
-        defaultBranch = "main";
-      };
-      pull.rebase = true;
-      user.email = "martijnvoordouw@gmail.com";
-      user.name = "MartV0";
-      commit.gpgsign = false;
-    };
-  };
-
   system.stateVersion = "24.11";
 }
