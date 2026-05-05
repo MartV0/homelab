@@ -18,7 +18,7 @@
       };
       before = ["nixos-upgrade.service"];
       requiredBy = ["nixos-upgrade.service"];
-      path = [pkgs.nix pkgs.git pkgs.host];
+      path = [pkgs.nix pkgs.git pkgs.host pkgs.openssh];
     };
     # This services pushes the updates to the git repo
     push-update = {
@@ -39,7 +39,7 @@
       requiredBy = ["flake-update.service"];
       path = [
       	pkgs.git
-	pkgs.openssh # ssh needed for signing
+        pkgs.openssh # ssh needed for signing
       ];
     };
   };
