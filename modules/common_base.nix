@@ -55,5 +55,19 @@
   programs.vim.defaultEditor = true;
   programs.vim.enable = true;
 
+  # Also some git config defined in dotfiles, but this is useful as a fallback
+  programs.git = { 
+    enable = true;
+    config = {
+      init = {
+        defaultBranch = "main";
+      };
+      pull.rebase = true;
+      user.email = "martijnvoordouw@gmail.com";
+      user.name = "MartV0";
+      commit.gpgsign = false;
+    };
+  };
+
   system.stateVersion = "24.11";
 }
