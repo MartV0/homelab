@@ -4,6 +4,7 @@
   imports = [
     ./neovim.nix
     ./symlinks.nix
+    ./themes.nix
   ];
 
   home.username = username;
