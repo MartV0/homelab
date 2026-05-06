@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 # based on: https://geanmar.com/posts/how-to-setup-nvim-on-nixos/
 with lib;
 let
-  build-dependent-pkgs = with pkgs;
+  build-dependent-pkgs = with pkgs-unstable;
     [
       acl
       attr
@@ -25,20 +25,20 @@ let
   makePkgConfigPath = x: makeSearchPathOutput "dev" "lib/pkgconfig" x;
   makeIncludePath = x: makeSearchPathOutput "dev" "include" x;
 
-  nvim-depends-library = pkgs.buildEnv {
+  nvim-depends-library = pkgs-unstable.buildEnv {
     name = "nvim-depends-library";
     paths = map lib.getLib build-dependent-pkgs;
     extraPrefix = "/lib/nvim-depends";
     pathsToLink = [ "/lib" ];
     ignoreCollisions = true;
   };
-  nvim-depends-include = pkgs.buildEnv {
+  nvim-depends-include = pkgs-unstable.buildEnv {
     name = "nvim-depends-include";
     paths = splitString ":" (makeIncludePath build-dependent-pkgs);
     extraPrefix = "/lib/nvim-depends/include";
     ignoreCollisions = true;
   };
-  nvim-depends-pkgconfig = pkgs.buildEnv {
+  nvim-depends-pkgconfig = pkgs-unstable.buildEnv {
     name = "nvim-depends-pkgconfig";
     paths = splitString ":" (makePkgConfigPath build-dependent-pkgs);
     extraPrefix = "/lib/nvim-depends/pkgconfig";
@@ -53,7 +53,7 @@ let
     "PKG_CONFIG_PATH=${config.home.profileDirectory}/lib/nvim-depends/pkgconfig"
   ];
 in {
-  home.packages = with pkgs; [
+  home.packages = with pkgs-unstable; [
     patchelf
     nvim-depends-include
     nvim-depends-library
@@ -66,13 +66,13 @@ in {
 
   programs.neovim = {
     enable = true;
-#    package = pkgs.neovim;
+    package = pkgs-unstable.neovim-unwrapped;
 
     withNodeJs = true;
     withPython3 = true;
     withRuby = true;
 
-    extraPackages = with pkgs;
+    extraPackages = with pkgs-unstable;
       [
         doq
         sqlite

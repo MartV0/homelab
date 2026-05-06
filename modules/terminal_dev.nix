@@ -26,8 +26,8 @@
     ripgrep
     fd
     gcc
-    nodePackages.npm
-    nodejs
+    # nodePackages.npm
+    # nodejs
     python315
 
     # tools/utilities
