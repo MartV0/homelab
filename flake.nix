@@ -17,6 +17,7 @@
     hostnamenuc= "nixos-nuc";
     hostnamevm= "nixos-vm";
     hostnamepc= "nixos-gamepc";
+    hostnamelaptop= "nixos-laptop";
     system_aarch = "aarch-linux";
     system_x86 = "x86_64-linux";
     username = "martijn";
@@ -49,6 +50,11 @@
         hostname = hostnamepc;
         system = system_x86;
         modules = [ ./machines/game-pc/configuration.nix nix-flatpak.nixosModules.nix-flatpak ];
+      };
+      ${hostnamelaptop} = createSystem {
+        hostname = hostnamelaptop;
+        system = system_x86;
+        modules = [ ./machines/laptop/configuration.nix nix-flatpak.nixosModules.nix-flatpak ];
       };
     };
   };

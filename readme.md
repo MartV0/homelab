@@ -10,4 +10,9 @@ just rebuild
 ```
 
 Some additional imperative steps:
-- install doom emacs: https://discourse.doomemacs.org/t/installing-doom-emacs-on-nixos/4600
+- install doom emacs:
+```
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+rm -rf ~/.emacs.d
+```
