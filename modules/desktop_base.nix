@@ -4,6 +4,7 @@
     [ 
       ./common_base.nix
       ./terminal_dev.nix
+      ./autostart_desktop.nix
       ./applications/vpn.nix
       ./applications/zen-browser.nix
       ./window_managers/kde.nix
@@ -112,19 +113,6 @@
       # driver stuff
       hplip
   ] ++ unstable;
-
-  # autostart seadrive
-  systemd.user.services.seadrive = {
-    path = [ pkgs-unstable.seadrive-gui ];
-    description = "Autostart seadrive";
-    wantedBy = [ "niri.service" ];
-    wants = [ "niri.service" ];
-    after = [ "niri.service" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs-unstable.seadrive-gui}/bin/seadrive-gui";
-    };
-  };
 
   hardware.bluetooth = {
     enable = true;

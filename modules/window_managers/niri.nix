@@ -2,7 +2,10 @@
 {
   imports = [ ./tools.nix ];
 
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs-unstable.niri;
+  };
 
   security.polkit.enable = true;
 
@@ -31,9 +34,9 @@
     hyprlock
   ] ++ [ pkgs-unstable.awww ];
 
-  # needed by gtk4 apps for compose keys
-  i18n.inputMethod = {
-    enable = true;
-    type = "ibus";
-  };
+  # TODO:needed by gtk4 apps for compose keys
+  # i18n.inputMethod = {
+  #   enable = true;
+  #   type = "ibus";
+  # };
 }

@@ -11,6 +11,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Not sure if this is actually needed
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  # GPU driver stuff (not sure if amdgpu is needed for integrated graphics?)
+  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  hardware.graphics.enable = true;
+  hardware.nvidia.open = true;
+  # TODO: prime (dual gpu) setup?
 }
