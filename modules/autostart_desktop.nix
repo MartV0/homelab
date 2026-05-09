@@ -1,6 +1,6 @@
 { pkgs, pkgs-unstable, ... }:
 let
-  target = "niri.service";
+  target = "graphical-session.target";
 in {
   # autostart seadrive
   systemd.user.services.seadrive = {

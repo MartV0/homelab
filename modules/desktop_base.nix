@@ -5,6 +5,7 @@
       ./common_base.nix
       ./terminal_dev.nix
       ./autostart_desktop.nix
+      ./io_scheduler.nix
       ./applications/vpn.nix
       ./applications/zen-browser.nix
       ./window_managers/kde.nix
