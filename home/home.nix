@@ -1,33 +1,33 @@
-{ username, ... }:
-
+{ username, lib, config, ... }:
 {
   imports = [
     ./neovim.nix
     ./symlinks.nix
-    ./themes.nix
+    ./desktop.nix
   ];
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
+  config = {
+    home.username = username;
+    home.homeDirectory = "/home/${username}";
 
-  home.stateVersion = "24.05";
+    home.stateVersion = "24.05";
 
-  home.packages = [];
+    home.packages = [];
 
-  xdg.desktopEntries.tidal-hifi = {
-    name = "TIDAL Hi-Fi";
-    # --no-sandbox is needed, otherwise white screen
-    exec = "tidal-hifi --no-sandbox";
-    icon = "tidal-hifi";
-    terminal = false;
+    home.file = {
+    };
+
+    home.sessionVariables = {
+      # EDITOR = "emacs";
+    };
+
+    programs.home-manager.enable = false;
   };
 
-  home.file = {
+  options = {
+    isDesktop = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
-
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
-  programs.home-manager.enable = false;
 }

@@ -14,6 +14,13 @@
       ./terminal_dev.nix
     ];
 
+  home-manager = {
+    users = {
+      ${username} = {
+        config.isDesktop = false;
+      };
+    };
+  };
 
   users.users."${username}" = {
     isNormalUser = true;

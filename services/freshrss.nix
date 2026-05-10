@@ -1,7 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   user = "freshrss";
   group = "freshrss";
+  package = pkgs.freshrss;
 in
 {
   age.secrets."freshrss-passwd" = {
@@ -19,16 +20,15 @@ in
     extraGroups = [ group ];
   };
 
-  # services.caddy.virtualHosts.freshrss = {
-  # };
-
   services.freshrss = {
     enable = true;
+    package = package;
     defaultUser = "martijn";
     baseUrl = "https://martijnv.com/freshrss";
     language = "nl";
     passwordFile = config.age.secrets."freshrss-passwd".path;
     user = user;
     webserver = "caddy";
+    virtualHost = "freshrss";
   };
 }

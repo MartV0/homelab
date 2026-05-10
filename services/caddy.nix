@@ -1,4 +1,4 @@
-{ staticSite, ... }:
+{ staticSite, config, ... }:
 {
   services.caddy = {
     enable = true;
@@ -13,6 +13,14 @@
           header_up X-Forwarded-For {remote}
           header_up Host {host}
         }
+      }
+
+      handle_path /freshrss* {
+        root * ${config.services.freshrss.package}/p
+        php_fastcgi unix/${config.services.phpfpm.pools.freshrss.socket} {
+            env FRESHRSS_DATA_PATH ${config.services.freshrss.dataDir}
+        }
+        file_server
       }
 
       handle {
