@@ -5,6 +5,7 @@
       ./../services/seafile/seafile.nix
       ./../services/caddy.nix
       ./../services/comments.nix
+      ./../services/freshrss.nix
       # ./../services/minecraft.nix
       ./../admin/ssh.nix
       ./../system/autoupdate.nix

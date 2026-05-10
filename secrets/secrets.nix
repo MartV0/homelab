@@ -8,4 +8,5 @@ in
   "seafile-secrets.env".publicKeys = keys;
   "nextcloud-passwd".publicKeys = keys;
   "isso-admin-passwd".publicKeys = keys;
+  "freshrss-passwd".publicKeys = keys;
 }
