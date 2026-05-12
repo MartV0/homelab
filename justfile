@@ -4,6 +4,9 @@ default:
 rebuild:
   sudo nixos-rebuild switch --no-reexec --flake "$(pwd)" --impure
 
+rb-boot:
+  sudo nixos-rebuild boot --no-reexec --flake "$(pwd)" --impure
+
 up:
   nix flake update
 

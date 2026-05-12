@@ -81,6 +81,7 @@
       keepassxc
       libreoffice
       marktext
+      nicotine-plus
       obs-studio
       qalculate-gtk
       rpi-imager
