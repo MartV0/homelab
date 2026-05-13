@@ -13,4 +13,9 @@
 
   # Not sure if this is actually needed
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 }
