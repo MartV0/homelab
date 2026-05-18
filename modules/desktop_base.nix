@@ -9,6 +9,7 @@
   imports = [
     ./common_base.nix
     ./gaming.nix
+    ./uni.nix
     ./terminal_dev.nix
     ./autostart_desktop.nix
     ./io_scheduler.nix
