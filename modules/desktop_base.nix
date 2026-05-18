@@ -8,6 +8,7 @@
 {
   imports = [
     ./common_base.nix
+    ./gaming.nix
     ./terminal_dev.nix
     ./autostart_desktop.nix
     ./io_scheduler.nix
@@ -65,6 +66,8 @@
     packages = with pkgs; [ ];
   };
 
+  services.displayManager.sddm.enable = true;
+
   programs.firefox.enable = true;
 
   environment.systemPackages =
@@ -111,19 +114,10 @@
       emacs-gtk
       qbittorrent
 
-      # uni stuff
-      zotero
-      jetbrains.idea
-      teams-for-linux
-
       # tools/utilities
       ffmpeg
       gparted
       kdePackages.partitionmanager
-      pandoc
-      texliveFull
-      python313Packages.pygments # needed for minted latex package
-      texlivePackages.texments
       yt-dlp
       gnome-disk-utility
 

@@ -4,8 +4,11 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./../../modules/gaming_desktop.nix
+      ./../../modules/desktop_base.nix
     ];
+
+  desktop.gaming.enable = true;
+  desktop.uni.enable = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
