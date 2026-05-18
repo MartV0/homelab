@@ -1,16 +1,21 @@
-{ pkgs, username, pkgs-unstable, lib, ... }:
 {
-  imports =
-    [ 
-      ./common_base.nix
-      ./terminal_dev.nix
-      ./autostart_desktop.nix
-      ./io_scheduler.nix
-      ./applications/vpn.nix
-      ./applications/zen-browser.nix
-      ./window_managers/kde.nix
-      ./window_managers/niri.nix
-    ];
+  pkgs,
+  username,
+  pkgs-unstable,
+  lib,
+  ...
+}:
+{
+  imports = [
+    ./common_base.nix
+    ./terminal_dev.nix
+    ./autostart_desktop.nix
+    ./io_scheduler.nix
+    ./applications/vpn.nix
+    ./applications/zen-browser.nix
+    ./window_managers/kde.nix
+    ./window_managers/niri.nix
+  ];
 
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -51,19 +56,26 @@
   users.users."${username}" = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      # might fix some issues with drm?
+      "video"
+    ];
+    packages = with pkgs; [ ];
   };
 
   programs.firefox.enable = true;
 
-  environment.systemPackages = let 
-    unstable = with pkgs-unstable; [ 
-      seadrive-gui
-      tidal-hifi
-    ]; 
-    in 
-    with pkgs; [
+  environment.systemPackages =
+    let
+      unstable = with pkgs-unstable; [
+        seadrive-gui
+        tidal-hifi
+      ];
+    in
+    with pkgs;
+    [
       # terminal/shell stuff
       alacritty
       nerd-fonts.caskaydia-cove
@@ -82,6 +94,7 @@
       libreoffice
       marktext
       nicotine-plus
+      snapshot
       obs-studio
       qalculate-gtk
       rpi-imager
@@ -102,19 +115,22 @@
       zotero
       jetbrains.idea
       teams-for-linux
-      
+
       # tools/utilities
       ffmpeg
       gparted
       kdePackages.partitionmanager
       pandoc
       texliveFull
+      python313Packages.pygments # needed for minted latex package
+      texlivePackages.texments
       yt-dlp
       gnome-disk-utility
-      
+
       # driver stuff
       hplip
-  ] ++ unstable;
+    ]
+    ++ unstable;
 
   hardware.bluetooth = {
     enable = true;
@@ -134,4 +150,3 @@
 
   system.stateVersion = "24.11";
 }
-
