@@ -15,6 +15,13 @@
       };
     };
 
+    # Needed because enabling a gtk theme keeps creating an old file
+    home.activation.removeGtkRc = {
+      data = "rm -f $HOME/.gtkrc-2.0";
+      before = [ "checkLinkTargets" ];
+      after = [ ];
+    };
+
     qt = {
       enable = true;
       platformTheme.name = "adwaita";
