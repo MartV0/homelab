@@ -1,10 +1,10 @@
 default:
   just --list
 
-rebuild:
+switch:
   sudo nixos-rebuild switch --no-reexec --flake "$(pwd)" --impure
 
-rb-boot:
+boot:
   sudo nixos-rebuild boot --no-reexec --flake "$(pwd)" --impure
 
 up:
