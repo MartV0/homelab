@@ -26,6 +26,7 @@
     ripgrep
     fd
     gcc
+    deno # Used by peek.nvim
     # nodePackages.npm
     # nodejs
     python315

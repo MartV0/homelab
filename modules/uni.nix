@@ -11,6 +11,7 @@
     environment.systemPackages = with pkgs; [
       zotero
       jetbrains.idea
+      java-language-server
       teams-for-linux
       pandoc
       texliveFull

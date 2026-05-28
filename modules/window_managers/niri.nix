@@ -28,6 +28,7 @@
     phinger-cursors
 
     # wayland wm
+    wdisplays
     mako
     waybar
     xwayland-satellite
