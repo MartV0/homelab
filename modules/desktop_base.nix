@@ -86,6 +86,7 @@
       nerd-fonts.caskaydia-mono
       nerd-fonts.symbols-only
       nerd-fonts.jetbrains-mono
+      cava
 
       # gui applications
       discord

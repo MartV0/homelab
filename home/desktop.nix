@@ -13,6 +13,7 @@
         name = "Adwaita-dark";
         package = pkgs.gnome-themes-extra;
       };
+      colorScheme = "dark";
     };
 
     # Needed because enabling a gtk theme keeps creating an old file
