@@ -56,7 +56,7 @@
 
     # formatters/linters
     black
-    nodePackages.prettier
+    prettier
     python313Packages.flake8
     eslint
   ];

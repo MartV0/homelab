@@ -1,10 +1,9 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./tools.nix ];
 
   programs.niri = {
     enable = true;
-    package = pkgs-unstable.niri;
   };
 
   security.polkit.enable = true;
@@ -33,7 +32,8 @@
     waybar
     xwayland-satellite
     hyprlock
-  ] ++ [ pkgs-unstable.awww ];
+    awww
+  ];
 
   # TODO:needed by gtk4 apps for compose keys
   # i18n.inputMethod = {

@@ -71,6 +71,7 @@ in {
     withNodeJs = true;
     withPython3 = true;
     withRuby = true;
+    sideloadInitLua = true;
 
     extraPackages = with pkgs-unstable;
       [

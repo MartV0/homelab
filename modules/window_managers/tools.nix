@@ -10,7 +10,7 @@
       networkmanagerapplet
       imagemagick # for background selector
       pavucontrol
-      xfce.thunar
+      thunar
       rofi
   ];
 }
