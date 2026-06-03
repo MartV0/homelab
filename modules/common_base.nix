@@ -30,7 +30,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    killall
+    psmisc
     git
     fastfetch
     htop

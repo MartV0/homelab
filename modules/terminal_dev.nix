@@ -30,6 +30,8 @@
     # nodePackages.npm
     # nodejs
     python315
+    cargo
+    rustc
 
     # tools/utilities
     btrfs-progs
