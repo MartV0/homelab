@@ -9,7 +9,7 @@
       # ./../services/minecraft.nix
       ./../admin/ssh.nix
       ./../system/autoupdate.nix
-      ./../system/datadisk.nix
+      # ./../system/datadisk.nix
       ./common_base.nix
       ./terminal_dev.nix
     ];
