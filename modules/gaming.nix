@@ -7,7 +7,14 @@
     type = lib.types.bool;
   };
 
-  config = lib.mkIf config.desktop.gaming.enable {
+  config = let 
+     proton-pkgs = import (builtins.fetchGit {
+       url = "https://github.com/nixos/nixpkgs/";
+       ref = "refs/heads/nixos-unstable";
+       rev = "1df46edda35ae7ddad2d06b333a7816e636f48c6";
+     }) {};
+     proton-ge-9-4 = proton-pkgs.proton-ge-bin;
+  in lib.mkIf config.desktop.gaming.enable {
     users.users."${username}" = {
       extraGroups = [ "gamemode" ];
     };
@@ -47,7 +54,9 @@
         enable = true;
         package = pkgs-unstable.protontricks;
       };
-      extraCompatPackages = [ ];
+      extraCompatPackages = [
+        proton-ge-9-4
+      ];
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
@@ -58,7 +67,8 @@
     # - in steam compatibility setting force proton-ge 9.4
     # - Run assetto corsa once then close
     # - Download content manager, and place in assetto corsa folder
-    # - cd /home/martijn/.local/share/Steam/steamapps/common/assettocorsa/ && ln Content\ Manager.exe AssettoCorsa.exe
+    # - cd /home/martijn/.local/share/Steam/steamapps/common/assettocorsa/
+    # - ln Content\ Manager.exe AssettoCorsa.exe
     # - go into compatdata: /home/martijn/.local/share/Steam/steamapps/compatdata/244210/pfx/drive_c/Program Files (x86)/Steam/config/
     # - soft link /home/martijn/.steam/root/config/loginusers.vdf to above folder
     # - Launch "protontricks 244210 winecfg" in protontricks
