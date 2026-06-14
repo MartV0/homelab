@@ -12,6 +12,7 @@
     fish
     fortune-kind
     fzf
+    gdb
     mlocate
     lolcat
     ranger
@@ -59,6 +60,7 @@
     prettier
     python313Packages.flake8
     eslint
+    rustfmt
   ];
 
   programs.tmux = {
