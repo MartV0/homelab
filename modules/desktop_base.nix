@@ -121,6 +121,7 @@
       gparted
       kdePackages.partitionmanager
       yt-dlp
+      seer # gdb frontend
       gnome-disk-utility
 
       # driver stuff
