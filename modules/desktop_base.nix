@@ -67,7 +67,7 @@
     packages = with pkgs; [ ];
   };
 
-  services.displayManager.sddm.enable = true;
+  services.displayManager.plasma-login-manager.enable = true;
 
   programs.firefox.enable = true;
 
