@@ -12,6 +12,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.displayManager.defaultSession = "niri";
+
   hardware.graphics.enable = true;
   # GPU driver stuff (not sure if amdgpu is needed for integrated graphics?)
   services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
