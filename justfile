@@ -34,8 +34,9 @@ generations:
 
 gc:
   sudo nix-collect-garbage --delete-old -v
-  sudo nix-store --optimise -v
 
 gc30:
   sudo nix-collect-garbage --delete-older-than 30d -v
+
+optimise:
   sudo nix-store --optimise -v
