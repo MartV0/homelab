@@ -67,7 +67,17 @@
     packages = with pkgs; [ ];
   };
 
-  services.displayManager.plasma-login-manager.enable = true;
+  # TODO: doesn't seem to work
+  services.displayManager.plasma-login-manager = {
+    enable = true;
+    settings = {
+      Greeter = {
+        # makes last selected the default one
+        PreselectedSession= "";
+        PreselectedUser="martijn";
+      };
+    };
+  };
 
   programs.firefox.enable = true;
 
