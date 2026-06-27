@@ -82,10 +82,6 @@
     [
       # terminal/shell stuff
       alacritty
-      nerd-fonts.caskaydia-cove
-      nerd-fonts.caskaydia-mono
-      nerd-fonts.symbols-only
-      nerd-fonts.jetbrains-mono
       cava
 
       # gui applications
@@ -133,6 +129,13 @@
     enable = true;
     powerOnBoot = true;
   };
+
+  fonts.packages = with pkgs; [
+      nerd-fonts.caskaydia-cove
+      nerd-fonts.caskaydia-mono
+      nerd-fonts.symbols-only
+      nerd-fonts.jetbrains-mono
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
