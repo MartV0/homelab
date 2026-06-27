@@ -1,5 +1,4 @@
 { pkgs, hostname, username, agenix, system, inputs, outputs, pkgs-unstable, ... }:
-
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager

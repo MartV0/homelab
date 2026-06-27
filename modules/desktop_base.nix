@@ -120,6 +120,7 @@
       seafile-client
       localsend
       emacs-gtk
+      wl-clipboard # for org download clipboard
       qbittorrent
 
       # tools/utilities
