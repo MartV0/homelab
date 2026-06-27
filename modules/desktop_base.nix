@@ -86,6 +86,7 @@
       unstable = with pkgs-unstable; [
         seadrive-gui
         tidal-hifi
+        discord
       ];
     in
     with pkgs;
@@ -95,7 +96,6 @@
       cava
 
       # gui applications
-      discord
       signal-desktop
       firefox
       gnucash
