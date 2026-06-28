@@ -1,5 +1,4 @@
 { ... }:
-
 {
   imports =
     [ 
@@ -20,5 +19,14 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+  };
+
+  fileSystems."/games-disk" = {
+    device = "/dev/disk/by-label/games-disk";
+    fsType = "ext4";
+    options = [ 
+      "nofail" 
+      "defaults"
+    ];
   };
 }
