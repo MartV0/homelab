@@ -40,7 +40,14 @@
       ${hostnamenuc} = createSystem {
         hostname = hostnamenuc;
         system = system_x86;
-        modules = [ ./machines/nuc/configuration.nix ];
+        modules = [
+          ({ pkgs, ... }: {
+          disabledModules = [ "${nixpkgs}/nixos/modules/services/web-apps/isso.nix" ];
+          imports = [
+            "${inputs.pkgsReview}/nixos/modules/services/web-apps/isso.nix"
+          ];})
+          ./machines/nuc/configuration.nix
+        ];
       };
       ${hostnamevm} = createSystem {
         hostname = hostnamevm;
