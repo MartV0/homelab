@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    pkgsReview.url = "github:MartV0/nixpkgs/isso-secret-file";
     staticSite.url = "github:MartV0/personal-site";
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +13,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
-  outputs = { self, nixpkgs, staticSite, agenix, home-manager, nix-flatpak, nixpkgs-unstable }@inputs: let
+  outputs = { self, nixpkgs, staticSite, agenix, home-manager, nix-flatpak, nixpkgs-unstable, ... }@inputs: let
     hostnamepi= "nixospi";
     hostnamenuc= "nixos-nuc";
     hostnamevm= "nixos-vm";

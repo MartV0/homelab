@@ -135,6 +135,22 @@
         "type": "github"
       }
     },
+    "pkgsReview": {
+      "locked": {
+        "lastModified": 1783084670,
+        "narHash": "sha256-oA5rA1bxz1lMod26H8jtS8+z4Oo0A1MN2PxrTjNnanE=",
+        "owner": "MartV0",
+        "repo": "nixpkgs",
+        "rev": "58411c10e7dc8e046ec5b0126ffacba3f52e94ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MartV0",
+        "ref": "isso-secret-file",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -142,6 +158,7 @@
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "pkgsReview": "pkgsReview",
         "staticSite": "staticSite"
       }
     },
