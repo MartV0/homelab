@@ -1,6 +1,6 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
-  age.secrets.isso-admin-passwd.file = ./../secrets/isso-admin-passwd;
+  age.secrets.isso-secrets-env.file = ./../secrets/isso-secrets.env;
 
   services.isso = {
     enable = true;
@@ -8,24 +8,22 @@
       general = {
         dbpath = "/var/lib/isso/comments.db";
         host = ''
-	  http://martijnv.com
-	  https://martijnv.com
-	'';
+          http://martijnv.com
+          https://martijnv.com
+        '';
       };
       server = {
         listen = "http://localhost:8123";
       };
       admin = {
-      	enabled = true;
-	# No the proper (age)nix way to do this, this will store the password unencrypted
-	# in the nix store. But the isso config does not have a config file option.
-	password = lib.removeSuffix "\n"
-	         (builtins.readFile config.age.secrets.isso-admin-passwd.path);
+        enabled = true;
+        password = "\${ADMIN_PASSWORD}";
       };
       rss = {
         limit = 50;
         base = "https://martijnv.com/";
       };
     };
+    secretFile = config.age.secrets.isso-secrets-env.path;
   };
 }
