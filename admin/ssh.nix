@@ -22,5 +22,11 @@
       enable = true;
       overalljails = true;
     };
+
+    ignoreIP = [
+      "127.0.0.0/8"
+      "192.168.0.0/24"
+      "martijnv.com"
+    ];
   };
 }
