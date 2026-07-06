@@ -9,6 +9,7 @@
     btop
     cowsay
     eza
+    dig # dns lookup
     fish
     fortune-kind
     fzf
