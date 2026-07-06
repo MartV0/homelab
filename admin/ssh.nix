@@ -4,6 +4,7 @@
     enable = true;
     ports = [ 22 ];
     settings = {
+      LogLevel = "VERBOSE";
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
