@@ -5,6 +5,7 @@
 
     virtualHosts."martijnv.com".extraConfig = ''
       header   Cache-Control no-cache
+      header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
       handle_path /comments/* {
         reverse_proxy localhost:8123 {

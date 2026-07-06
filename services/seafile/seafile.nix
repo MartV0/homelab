@@ -17,6 +17,7 @@ let url = "seafile.martijnv.com"; in {
   };
 
   services.caddy.virtualHosts."${url}".extraConfig = ''
+    header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
     reverse_proxy localhost:8083
   '';
 
