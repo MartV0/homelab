@@ -1,7 +1,9 @@
-{ staticSite, config, ... }:
+{ staticSite, config, lib, ... }:
 {
   services.caddy = {
     enable = true;
+
+    logFormat = lib.mkForce "level INFO";
 
     virtualHosts."martijnv.com".extraConfig = ''
       header   Cache-Control no-cache
@@ -43,7 +45,12 @@
       settings = {
         enabled = true;
         filter = "caddy-status";
-        logpath = "${config.services.caddy.logDir}/access-*.log";
+        maxretry = 3;
+        findtime = "10m";
+        bantime = "1h";
+        backend = "polling";
+        logpath = "${config.services.caddy.logDir}/access-martijnv.com.log";
+        action = "iptables-multiport[name=caddy, port=\"http,https\"]";
       };
     };
   };
