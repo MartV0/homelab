@@ -40,7 +40,10 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [ gutenprint hplipWithPlugin splix ];
+  };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -132,7 +135,7 @@
       gnome-disk-utility
 
       # driver stuff
-      hplip
+      hplipWithPlugin
     ]
     ++ unstable;
 
