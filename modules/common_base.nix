@@ -71,4 +71,8 @@
   };
 
   system.stateVersion = "24.11";
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "pnpm-9.15.9"
+  ];
 }
