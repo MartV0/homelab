@@ -36,6 +36,7 @@
     age
     just
     agenix.packages.${system}.default
+    nix-tree
     tree
     ncdu
     home-manager
