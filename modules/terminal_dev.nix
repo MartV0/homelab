@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, pkgs-unstable, username, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -58,10 +58,11 @@
 
     # formatters/linters
     black
-    prettier
     python313Packages.flake8
     eslint
     rustfmt
+  ] ++ [ 
+    pkgs-unstable.prettier
   ];
 
   programs.tmux = {
