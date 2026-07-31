@@ -10,6 +10,7 @@ in
     fish.source = "${dotfiles}/.config/fish";
     flameshot.source = "${dotfiles}/.config/flameshot";
     hypr.source = "${dotfiles}/.config/hypr";
+    keepassxc.source = "${dotfiles}/.config/keepassxc";
     mako.source = "${dotfiles}/.config/mako";
     niri.source = "${dotfiles}/.config/niri";
     nvim.source = "${dotfiles}/.config/nvim";
@@ -17,9 +18,9 @@ in
     qtile.source = "${dotfiles}/.config/qtile";
     ranger.source = "${dotfiles}/.config/ranger";
     rofi.source = "${dotfiles}/.config/rofi";
+    swayidle.source = "${dotfiles}/.config/swayidle";
     waybar.source = "${dotfiles}/.config/waybar";
     zathura.source = "${dotfiles}/.config/zathura";
-    keepassxc.source = "${dotfiles}/.config/keepassxc";
   };
 
   home.file = {
