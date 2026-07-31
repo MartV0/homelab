@@ -1,4 +1,4 @@
-{ username, lib, config, ... }:
+{ username, lib, ... }:
 {
   imports = [
     ./neovim.nix

@@ -130,6 +130,7 @@
       ffmpeg
       gparted
       kdePackages.partitionmanager
+      libnotify # notify-send
       yt-dlp
       seer # gdb frontend
       gnome-disk-utility
