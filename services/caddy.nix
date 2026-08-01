@@ -37,21 +37,32 @@
     [Definition]
     failregex = ^.*"remote_ip":"<HOST>".*"status":(401|403|404|408|429|500|501).*$;
     ignoreregex =
-    datepattern = LongEpoch
+    datepattern =LongEpoch
   '';
 
   services.fail2ban.jails = {
     caddy-status = {
       settings = {
         enabled = true;
+        port="http,https";
         filter = "caddy-status";
         maxretry = 3;
         findtime = "10m";
         bantime = "1h";
         backend = "polling";
-        logpath = "${config.services.caddy.logDir}/access-martijnv.com.log";
+        logpath = "${config.services.caddy.logDir}/access*.log";
         action = "iptables-multiport[name=caddy, port=\"http,https\"]";
       };
+    };
+  };
+
+  services.fail2ban.daemonSettings = {
+    Definition = {
+      logtarget = "SYSLOG";
+      socket = "/run/fail2ban/fail2ban.sock";
+      pidfile = "/run/fail2ban/fail2ban.pid";
+      dbfile = "/var/lib/fail2ban/fail2ban.sqlite3";
+      loglevel = "DEBUG";
     };
   };
 }
