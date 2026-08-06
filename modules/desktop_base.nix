@@ -110,12 +110,14 @@
       nicotine-plus
       snapshot
       obs-studio
+      pomodoro-gtk
       qalculate-gtk
       rpi-imager
       thunderbird
       tor-browser
       vlc
       pragha
+      rhythmbox
       krita
       pinta
       zathura

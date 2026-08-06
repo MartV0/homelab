@@ -7,6 +7,7 @@
 
     # terminal/shell stuff
     btop
+    bc
     cowsay
     eza
     dig # dns lookup
@@ -16,6 +17,7 @@
     gdb
     mlocate
     lolcat
+    pstree
     ranger
     inetutils
     zoxide
