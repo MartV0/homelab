@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
     flatpak-xdg-utils
@@ -13,7 +13,7 @@
     overrides = {
       "app.zen_browser.zen" = {
         Context = {
-          filesystems = [ "home" ];
+          filesystems = [ "home" "/nix/store:ro" ];
           talk-name = "org.freedesktop.Flatpak";
         };
       };
@@ -23,4 +23,5 @@
   # TODO: above overrides don't seem to do anything, use these commands instead
   # flatpak override --user --talk-name=org.freedesktop.Flatpak app.zen_browser.zen
   # flatpak override --user --filesystem=home app.zen_browser.zen
+  # flatpak override --user --filesystem=/nix/store:ro app.zen_browser.zen
 }
