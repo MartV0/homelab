@@ -28,7 +28,7 @@
 
     # wayland wm
     wdisplays
-    mako
+    swaynotificationcenter
     waybar
     xwayland-satellite
     hyprlock
@@ -49,6 +49,19 @@
       with pkgs; [ niri hyprlock systemd coreutils brightnessctl procps bash ]
       # unstable needed for condition_cmd
       ++ [ pkgs-unstable.hypridle ];
+  };
+
+  # Manual systemd config so the unit isn't started in kde for example
+  systemd.user.services.swaync = {
+    enable = true;
+    after = [ "niri.service" ];
+    wantedBy = [ "niri.service" ];
+    serviceConfig = {
+      Type="dbus";
+      BusName="org.freedesktop.Notifications";
+      ExecStart = "${pkgs.swaync}/bin/swaync";
+      ExecReload = "${pkgs.swaync}/bin/swaync-client --reload-config ; ${pkgs.swaync}/bin/swaync-client --reload-css";
+    };
   };
 
   # TODO:needed by gtk4 apps for compose keys

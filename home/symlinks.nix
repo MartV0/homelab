@@ -19,6 +19,7 @@ in
     ranger.source = "${dotfiles}/.config/ranger";
     rofi.source = "${dotfiles}/.config/rofi";
     swayidle.source = "${dotfiles}/.config/swayidle";
+    swaync.source = "${dotfiles}/.config/swaync";
     waybar.source = "${dotfiles}/.config/waybar";
     zathura.source = "${dotfiles}/.config/zathura";
   };
