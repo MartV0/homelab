@@ -127,6 +127,7 @@
       emacs-gtk
       wl-clipboard # for org download clipboard
       qbittorrent
+      kdePackages.kclock
 
       # tools/utilities
       ffmpeg
