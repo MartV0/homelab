@@ -59,8 +59,8 @@
     serviceConfig = {
       Type="dbus";
       BusName="org.freedesktop.Notifications";
-      ExecStart = "${pkgs.swaync}/bin/swaync";
-      ExecReload = "${pkgs.swaync}/bin/swaync-client --reload-config ; ${pkgs.swaync}/bin/swaync-client --reload-css";
+      ExecStart = "${pkgs.swaynotificationcenter}/bin/swaync";
+      ExecReload = "${pkgs.swaynotificationcenter}/bin/swaync-client --reload-config ; ${pkgs.swaynotificationcenter}/bin/swaync-client --reload-css";
     };
   };
 
