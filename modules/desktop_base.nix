@@ -148,6 +148,8 @@
     powerOnBoot = true;
   };
 
+  boot.plymouth.enable = true;
+
   fonts.packages = with pkgs; [
       nerd-fonts.caskaydia-cove
       nerd-fonts.caskaydia-mono
