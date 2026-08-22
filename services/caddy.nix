@@ -35,16 +35,14 @@
 
   environment.etc."fail2ban/filter.d/caddy-status.conf".text = ''
     [Definition]
-    failregex = ^.*"remote_ip":"<HOST>".*"status":(401|403|404|408|429|500|501).*$;
-    ignoreregex =
-    datepattern =LongEpoch
+    failregex = ^.*"remote_ip":"<HOST>".*"status":(401|403|404|408|429|500|501).*$
+    datepattern = LongEpoch
   '';
 
   services.fail2ban.jails = {
     caddy-status = {
       settings = {
         enabled = true;
-        port="http,https";
         filter = "caddy-status";
         maxretry = 3;
         findtime = "10m";
