@@ -57,8 +57,7 @@
     after = [ "niri.service" ];
     wantedBy = [ "niri.service" ];
     serviceConfig = {
-      Type="dbus";
-      BusName="org.freedesktop.Notifications";
+      Type="simple";
       ExecStart = "${pkgs.swaynotificationcenter}/bin/swaync";
       ExecReload = "${pkgs.swaynotificationcenter}/bin/swaync-client --reload-config ; ${pkgs.swaynotificationcenter}/bin/swaync-client --reload-css";
     };
