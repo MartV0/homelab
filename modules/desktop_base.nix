@@ -9,6 +9,7 @@
   imports = [
     ./common_base.nix
     ./gaming.nix
+    ./plymouth.nix
     ./uni.nix
     ./terminal_dev.nix
     ./autostart_desktop.nix
@@ -147,8 +148,6 @@
     enable = true;
     powerOnBoot = true;
   };
-
-  boot.plymouth.enable = true;
 
   fonts.packages = with pkgs; [
       nerd-fonts.caskaydia-cove

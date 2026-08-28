@@ -7,6 +7,7 @@
     ];
 
   desktop.gaming.enable = false;
+  plymouth-screen.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
