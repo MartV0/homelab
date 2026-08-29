@@ -102,6 +102,7 @@
       # gui applications
       signal-desktop
       firefox
+      ungoogled-chromium
       gnucash
       kdePackages.filelight
       kdePackages.okular
