@@ -40,3 +40,8 @@ gc30:
 
 optimise:
   sudo nix-store --optimise -v
+
+update-server:
+  ssh -t martijn@192.168.2.12 "sudo systemctl start nixos-upgrade.service"
+  git pull
+  just boot
