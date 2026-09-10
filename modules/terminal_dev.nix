@@ -15,6 +15,7 @@
     fortune-kind
     fzf
     gdb
+    gnumake
     mlocate
     lolcat
     pstree
@@ -31,8 +32,7 @@
     fd
     gcc
     deno # Used by peek.nvim
-    # nodePackages.npm
-    # nodejs
+    nodejs
     python315
     cargo
     rustc
@@ -44,6 +44,7 @@
     rclone
     stow
     unrar
+    zip
     unzip # also for mason.nvim
 
     ntfs3g # ntfs support

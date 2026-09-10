@@ -15,6 +15,7 @@
     ./autostart_desktop.nix
     ./io_scheduler.nix
     ./applications/vpn.nix
+    ./applications/activity-watch.nix
     ./applications/zen-browser.nix
     ./window_managers/kde.nix
     ./window_managers/niri.nix
@@ -103,6 +104,7 @@
       signal-desktop
       firefox
       ungoogled-chromium
+      floorp-bin
       gnucash
       kdePackages.filelight
       kdePackages.okular
