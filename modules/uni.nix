@@ -18,5 +18,7 @@
       python313Packages.pygments # needed for minted latex package
       texlivePackages.texments
     ];
+
+    virtualisation.docker.enable = true;
   };
 }
