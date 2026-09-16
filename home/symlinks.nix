@@ -5,6 +5,7 @@ let
 in
 {
   xdg.configFile = {
+    activitywatch.source = "${dotfiles}/.config/activitywatch";
     alacritty.source = "${dotfiles}/.config/alacritty";
     doom.source = "${dotfiles}/.config/doom";
     fish.source = "${dotfiles}/.config/fish";

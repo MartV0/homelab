@@ -9,7 +9,7 @@ in {
 
   # autostart activity watch
   systemd.user.services.activitywatch = {
-    path = [ pkgs.activitywatch pkgs.coreutils ];
+    path = with pkgs; [ activitywatch coreutils aw-watcher-window-wayland ];
     description = "Autostart activity watch";
     wantedBy = [ target ];
     wants = [ target ];
@@ -17,7 +17,7 @@ in {
     serviceConfig = {
       Type = "exec";
       # give systray some time to start
-      ExecStartPre = "-${pkgs.coreutils}/bin/sleep 10";
+      ExecStartPre = "-${pkgs.coreutils}/bin/sleep 4";
       ExecStart = "-${pkgs.activitywatch}/bin/aw-qt";
     };
   };
