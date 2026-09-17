@@ -12,6 +12,8 @@
       zotero
       jetbrains.idea
       java-language-server
+      jdk21
+      maven
       teams-for-linux
       pandoc
       texliveFull

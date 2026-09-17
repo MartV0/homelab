@@ -50,6 +50,7 @@
     ntfs3g # ntfs support
 
     # language servers:
+    bash-language-server
     csharp-ls
     haskell-language-server
     lua-language-server
