@@ -13,8 +13,11 @@
     overrides = {
       "app.zen_browser.zen" = {
         Context = {
-          filesystems = [ "home" "/nix/store:ro" ];
+          filesystems = [ "home" "/nix/store:ro" "/etc/localtime:ro" "/etc/zoneinfo:ro" ];
           talk-name = "org.freedesktop.Flatpak";
+        };
+        Environment = {
+          TZ = config.time.timeZone;
         };
       };
     };
@@ -24,4 +27,7 @@
   # flatpak override --user --talk-name=org.freedesktop.Flatpak app.zen_browser.zen
   # flatpak override --user --filesystem=home app.zen_browser.zen
   # flatpak override --user --filesystem=/nix/store:ro app.zen_browser.zen
+  # flatpak override --user --filesystem=/etc/localtime:ro app.zen_browser.zen
+  # flatpak override --user --filesystem=/etc/zoneinfo:ro app.zen_browser.zen
+  # flatpak override --user app.zen_browser.zen --env=TZ="Europe/Amsterdam"
 }
