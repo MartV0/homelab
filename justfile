@@ -32,11 +32,8 @@ pull-theirs:
 generations:
   nixos-rebuild list-generations
 
-gc:
-  sudo nix-collect-garbage --delete-old -v
-
-gc30:
-  sudo nix-collect-garbage --delete-older-than 30d -v
+gc days="0":
+  sudo nix-collect-garbage --delete-older-than "{{days}}d" -v
 
 optimise:
   sudo nix-store --optimise -v
