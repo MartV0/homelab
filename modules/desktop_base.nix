@@ -84,7 +84,10 @@
     };
   };
 
-  programs.firefox.enable = true;
+  programs = {
+    firefox.enable = true;
+    localsend.enable = true;
+  };
 
   environment.systemPackages =
     let
@@ -127,7 +130,6 @@
       zathura
       xdotool # required by zathura for forward search
       seafile-client
-      localsend
       emacs-gtk
       wl-clipboard # for org download clipboard
       qbittorrent
