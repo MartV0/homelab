@@ -161,16 +161,10 @@
       nerd-fonts.jetbrains-mono
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  systemd.oomd = {
+    enable = true;
+    enableUserSlices = true;
+  };
 
   system.stateVersion = "24.11";
 }
