@@ -113,6 +113,7 @@
       kdePackages.okular
       keepassxc
       libreoffice
+      onlyoffice-desktopeditors
       marktext
       nicotine-plus
       snapshot
