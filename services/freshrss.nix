@@ -21,7 +21,7 @@ in
   };
 
   services.freshrss = {
-    enable = true;
+    enable = false;
     package = package;
     defaultUser = "martijn";
     baseUrl = "https://martijnv.com/freshrss";
