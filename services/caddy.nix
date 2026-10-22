@@ -17,7 +17,9 @@
           header_up Host {host}
         }
       }
-
+      ''
+      + lib.optionalString config.services.freshrss.enable
+      ''
       handle_path /freshrss* {
         root * ${config.services.freshrss.package}/p
         php_fastcgi unix/${config.services.phpfpm.pools.freshrss.socket} {
@@ -25,7 +27,9 @@
         }
         file_server
       }
-
+      ''
+      +
+      ''
       handle {
         root * ${staticSite.website.src}
         file_server

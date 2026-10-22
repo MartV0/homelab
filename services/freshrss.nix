@@ -1,23 +1,26 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   user = "freshrss";
   group = "freshrss";
   package = pkgs.freshrss;
 in
 {
-  age.secrets."freshrss-passwd" = {
-    file = ./../secrets/freshrss-passwd;
-    mode = "440";
-    owner = user;
-    group = group;
+  age.secrets = lib.mkIf config.services.freshrss.enable {
+    "freshrss-passwd" = {
+      file = ./../secrets/freshrss-passwd;
+      mode = "440";
+      owner = user;
+      group = group;
+    };
   };
 
-  users.groups = {
-    "${group}" = {};
-  };
-
-  users.users."${user}" = {
-    extraGroups = [ group ];
+  users = lib.mkIf config.services.freshrss.enable {
+    groups = {
+      "${group}" = {};
+    };
+    users."${user}" = {
+      extraGroups = [ group ];
+    };
   };
 
   services.freshrss = {
