@@ -18,20 +18,30 @@
         }
       }
       ''
-      + lib.optionalString config.services.freshrss.enable
-      ''
-      handle_path /freshrss* {
-        root * ${config.services.freshrss.package}/p
-        php_fastcgi unix/${config.services.phpfpm.pools.freshrss.socket} {
-            env FRESHRSS_DATA_PATH ${config.services.freshrss.dataDir}
-        }
-        file_server
-      }
-      ''
+      # + lib.optionalString config.services.freshrss.enable
+      # ''
+      # handle_path /freshrss* {
+      #   root * ${config.services.freshrss.package}/p
+      #   php_fastcgi unix/${config.services.phpfpm.pools.freshrss.socket} {
+      #       env FRESHRSS_DATA_PATH ${config.services.freshrss.dataDir}
+      #   }
+      #   file_server
+      # }
+      # ''
       +
       ''
       handle {
         root * ${staticSite.website.src}
+        file_server
+      }
+    '';
+
+    virtualHosts."http://192.168.2.12:8080".extraConfig = ''
+      handle {
+        root * ${config.services.freshrss.package}/p
+        php_fastcgi unix/${config.services.phpfpm.pools.freshrss.socket} {
+            env FRESHRSS_DATA_PATH ${config.services.freshrss.dataDir}
+        }
         file_server
       }
     '';

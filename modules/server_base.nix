@@ -37,6 +37,7 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
+    8080
   ];
 
   programs.ssh.extraConfig = ''

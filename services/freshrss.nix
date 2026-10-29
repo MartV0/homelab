@@ -24,10 +24,10 @@ in
   };
 
   services.freshrss = {
-    enable = false;
+    enable = true;
     package = package;
     defaultUser = "martijn";
-    baseUrl = "https://martijnv.com/freshrss";
+    baseUrl = "http://192.168.2.12:8080/";
     language = "nl";
     passwordFile = config.age.secrets."freshrss-passwd".path;
     user = user;
