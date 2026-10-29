@@ -37,7 +37,6 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
-    25565 # minecraft
   ];
 
   programs.ssh.extraConfig = ''
