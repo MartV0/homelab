@@ -1,20 +1,7 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 let
   target = "graphical-session.target";
 in {
-  # autostart seadrive
-  systemd.user.services.seadrive = {
-    path = [ pkgs-unstable.seadrive-gui ];
-    description = "Autostart seadrive";
-    wantedBy = [ target ];
-    wants = [ target ];
-    after = [ target ];
-    serviceConfig = {
-      Type = "exec";
-      ExecStart = "-${pkgs-unstable.seadrive-gui}/bin/seadrive-gui";
-    };
-  };
-
   # autostart seafile
   systemd.user.services.seafile = {
     path = [ pkgs.seafile-client pkgs.coreutils ];

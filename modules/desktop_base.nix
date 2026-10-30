@@ -92,7 +92,6 @@
   environment.systemPackages =
     let
       unstable = with pkgs-unstable; [
-        seadrive-gui
         tidal-hifi
         discord
       ];
