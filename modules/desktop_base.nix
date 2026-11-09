@@ -87,6 +87,7 @@
   programs = {
     firefox.enable = true;
     localsend.enable = true;
+    kdeconnect.enable = true;
   };
 
   environment.systemPackages =
