@@ -19,6 +19,7 @@
       texliveFull
       python313Packages.pygments # needed for minted latex package
       texlivePackages.texments
+      texlivePackages.unfonts-extra
     ];
 
     virtualisation.docker.rootless = {
